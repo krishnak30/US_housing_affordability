@@ -1,0 +1,90 @@
+User: ok help me restructure the data set to separate the multyear and year columns and theyr row data
+
+ChatGPT: Let’s restructure the data so that it separates the rows based on `MULTIYEAR` for 2015–2019 and `YEAR` for 2020–2022, ensuring that each row corresponds to its correct year.
+
+---
+
+### **Steps to Restructure the Data**
+
+#### **Objective**
+- Use the `MULTIYEAR` column for 2015–2019 data.
+- Use the `YEAR` column for 2020–2022 data.
+- Create a unified `FINAL_YEAR` column for all rows, representing the correct year.
+
+---
+
+### **R Code to Restructure**
+Here’s how to handle the restructuring:
+
+```R
+# Step 1: Create a new 'FINAL_YEAR' column
+restructured_data <- raw_data %>%
+  mutate(FINAL_YEAR = ifelse(is.na(MULTYEAR), YEAR, MULTYEAR))
+
+# Step 2: Drop the 'YEAR' and 'MULTYEAR' columns (optional, if not needed anymore)
+restructured_data <- restructured_data %>%
+  select(-YEAR, -MULTYEAR)
+
+# Step 3: Sort the data by 'FINAL_YEAR' to ensure chronological order
+restructured_data <- restructured_data %>%
+  arrange(FINAL_YEAR)
+
+# Step 4: Verify the structure of the restructured data
+head(restructured_data)
+```
+
+---
+
+### **Explanation of the Code**
+1. **`mutate(FINAL_YEAR)`**:
+   - For rows where `MULTIYEAR` is available (2015–2019), use `MULTIYEAR` as the year.
+   - For rows where `MULTIYEAR` is `NA` (2020–2022), use `YEAR` instead.
+
+2. **`select()`**:
+   - Drops the now redundant `YEAR` and `MULTIYEAR` columns.
+
+3. **`arrange(FINAL_YEAR)`**:
+   - Sorts the dataset chronologically by the new `FINAL_YEAR` column.
+
+4. **Result**:
+   - Each row in the dataset now has a single, unified `FINAL_YEAR` column that reflects the correct year.
+
+---
+
+### **Expected Output**
+The restructured dataset will look like this:
+
+| FINAL_YEAR | RENTGRS | HHINCOME | VALUEH | ... |
+|------------|---------|----------|--------|-----|
+| 2015       | 1000    | 60000    | 250000 | ... |
+| 2016       | 1200    | 62000    | 270000 | ... |
+| 2017       | 1100    | 61000    | 260000 | ... |
+| 2018       | 1150    | 61500    | 265000 | ... |
+| 2019       | 1200    | 62000    | 270000 | ... |
+| 2020       | 1300    | 63000    | 280000 | ... |
+| 2021       | 1500    | 65000    | 300000 | ... |
+| 2022       | 1600    | 66000    | 310000 | ... |
+
+---
+
+### **Optional: Check for Unique Years**
+Run this command to confirm all years (2015–2022) are correctly included:
+
+```R
+unique(restructured_data$FINAL_YEAR)
+```
+
+It should return: `2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022`.
+
+---
+
+### **Save the Restructured Data**
+To save the cleaned and restructured dataset for future use:
+
+```R
+write.csv(restructured_data, "data/01-raw_data/restructured_data.csv", row.names = FALSE)
+```
+
+---
+
+Let me know if you encounter any issues or need clarification! 😊
