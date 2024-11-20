@@ -1,0 +1,43 @@
+User: awesome, now let's put this data into a variable called "cleaned_data" and let's change the column names to remove the underscores and capitalize first letters. 
+
+chatgpt: 
+
+Here’s how you can rename the columns to remove underscores and capitalize the first letters, and store the cleaned dataset in a variable called `cleaned_data`:
+
+---
+
+### **Code to Rename Columns and Store in `cleaned_data`**
+```R
+# Store the merged dataset in cleaned_data
+cleaned_data <- merged_data
+
+# Rename the columns to remove underscores and capitalize first letters
+colnames(cleaned_data) <- gsub("_", " ", colnames(cleaned_data))   # Replace underscores with spaces
+colnames(cleaned_data) <- sapply(colnames(cleaned_data), tools::toTitleCase)  # Capitalize first letters
+colnames(cleaned_data) <- gsub(" ", "", colnames(cleaned_data))   # Remove spaces for final clean names
+
+# View the renamed columns
+colnames(cleaned_data)
+
+# View the first few rows of the cleaned dataset
+head(cleaned_data)
+```
+
+---
+
+### **Explanation**
+1. **Replace Underscores (`_`) with Spaces**:
+   - `gsub("_", " ", colnames(cleaned_data))`: Replaces underscores with spaces.
+
+2. **Capitalize First Letters**:
+   - `sapply(colnames(cleaned_data), tools::toTitleCase)`: Capitalizes the first letter of each word.
+
+3. **Remove Spaces**:
+   - `gsub(" ", "", colnames(cleaned_data))`: Removes spaces entirely to create clean camel-case column names.
+
+4. **Assign Back to `colnames(cleaned_data)`**:
+   - Updates the column names of the `cleaned_data` variable.
+
+---
+
+Let me know if this worked, and we can proceed to the next steps! 😊

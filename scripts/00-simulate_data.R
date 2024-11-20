@@ -1,12 +1,11 @@
 #### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  #state and party that won each division.
-# Author: Rohan Alexander
-# Date: 26 September 2024
-# Contact: rohan.alexander@utoronto.ca
-# License: MIT
-# Pre-requisites: The `tidyverse` package must be installed
-# Any other information needed? Make sure you are in the `starter_folder` rproj
+# Purpose: Simulates a data set of the variables needed for housing affordability
+# analysis, including CPI, interest rates, housing prices, average wages, and housing supply
+# Author: Krishna Kumar
+# Date: 20 November, 2024
+# Contact: krishna.kumar@mail.utoronto.ca
+# Pre-requisites: None
+# Any other information needed? N/A
 
 
 #### Workspace setup ####
@@ -50,6 +49,9 @@ simulated_data <- data.frame(
   average_wages = average_wages,
   house_supply = house_supply
 )
+
+# Ensure the date column is of type Date
+simulated_data$date <- as.Date(simulated_data$date)
 
 # View the first few rows of the simulated data
 head(simulated_data)
