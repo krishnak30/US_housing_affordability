@@ -1,15 +1,6 @@
-#### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  #state and party that won each division.
-# Author: Rohan Alexander
-# Date: 26 September 2024
-# Contact: rohan.alexander@utoronto.ca
-# License: MIT
-# Pre-requisites: The `tidyverse` package must be installed
-# Any other information needed? Make sure you are in the `starter_folder` rproj
+user: wait before that, can you write a simular_data script for the kind of data i would want to have as the analysis data to work with. I want a column for data (yyyy-mm-dd) and then one column each for the variables: cpi, interest rates, house price, average wage thing, and house supply
 
-
-#### Workspace setup ####
+chatgpt:
 
 # Load necessary libraries
 library(dplyr)
@@ -54,5 +45,5 @@ simulated_data <- data.frame(
 # View the first few rows of the simulated data
 head(simulated_data)
 
-# Save the simulated data as a CSV
-write.csv(simulated_data, "data/00-simulated_data/simulated_data.csv", row.names = FALSE)
+# Save the simulated data as a CSV (optional)
+write.csv(simulated_data, "data/02-analysis_data/simulated_data.csv", row.names = FALSE)
