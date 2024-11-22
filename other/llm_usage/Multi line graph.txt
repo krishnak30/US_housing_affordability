@@ -1,0 +1,74 @@
+User: ok im gonna start with the multi line graph. Can we make something like this for CPI and interest rates? 
+
+chatgpt: 
+
+Here’s the code to create a multi-line graph for **CPI** and **Interest Rates** using ggplot2 in R, similar to the one you've shared:
+
+```R
+# Load necessary libraries
+library(ggplot2)
+
+# Load the cleaned data
+library(arrow)
+analysis_data <- read_parquet("data/02-analysis_data/analysis_data.parquet")
+
+# Plotting CPI and Interest Rates over time
+ggplot(data = analysis_data, aes(x = Date)) +
+  geom_line(aes(y = `CPI (Index)`, color = "CPI (Index)"), size = 1) +
+  geom_line(aes(y = `Interest Rate (%)` * 50, color = "Interest Rate (%)"), size = 1) + # Scale interest rates for visualization
+  scale_y_continuous(
+    name = "CPI (Index)",
+    sec.axis = sec_axis(~ . / 50, name = "Interest Rate (%)")
+  ) +
+  labs(
+    title = "Trends in CPI and Interest Rates Over Time",
+    x = "Year",
+    color = "Legend"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title.y = element_text(color = "blue"),
+    axis.title.y.right = element_text(color = "red"),
+    legend.position = "top"
+  )
+```
+
+### Explanation:
+- **`geom_line`**: Adds the two lines (one for CPI and one for Interest Rates).
+- **Scaling**: Since CPI values are much larger than Interest Rates, the latter is scaled by multiplying/dividing to ensure both are visible.
+- **Dual Axis**: The secondary axis (for Interest Rates) is added with `sec_axis`.
+- **Colors**: The lines are color-coded with a legend.
+
+### Outcome:
+The graph will show CPI and Interest Rates on the same timeline, scaled appropriately for visibility, similar in style to the one you've shared.
+
+user: 
+
+
+chatgpt: 
+
+# Load the necessary library
+library(patchwork)
+
+# CPI graph
+cpi_plot <- ggplot(analysis_data, aes(x = Date, y = `CPI (Index)`)) +
+  geom_line(color = "blue", size = 1) +
+  labs(
+    title = "CPI Over Time",
+    x = "Year",
+    y = "CPI (Index)"
+  ) +
+  theme_minimal()
+
+# Interest Rate graph
+interest_rate_plot <- ggplot(analysis_data, aes(x = Date, y = `Interest Rate (%)`)) +
+  geom_line(color = "red", size = 1) +
+  labs(
+    title = "Interest Rate Over Time",
+    x = "Year",
+    y = "Interest Rate (%)"
+  ) +
+  theme_minimal()
+
+# Combine the plots side by side
+cpi_plot + interest_rate_plot

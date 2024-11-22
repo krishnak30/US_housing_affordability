@@ -1,0 +1,24 @@
+user: ok now let's explain all the variabels we're using. write a very short paragraph explaining all the important details about each variable similarly structured to the image attached. 
+
+please use the following websites for info about the variables: 
+- https://fred.stlouisfed.org/series/CPIAUCSL
+- https://fred.stlouisfed.org/series/FEDFUNDS
+- https://fred.stlouisfed.org/series/CES0500000003
+- https://fred.stlouisfed.org/series/MSPNHSUS
+- https://fred.stlouisfed.org/series/MSACSR
+
+chatgpt:
+
+The dataset comprises five key variables, each offering insights into different aspects of the U.S. economy:
+
+1. **Consumer Price Index (CPI) (Index):** This variable represents the Consumer Price Index for All Urban Consumers: All Items (CPIAUCSL), which measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. It is indexed to a base period of 1982-1984=100 and is seasonally adjusted. 
+
+2. **Interest Rate (%):** This refers to the Federal Funds Effective Rate (FEDFUNDS), the interest rate at which depository institutions trade federal funds with each other overnight. It is expressed as a percentage and is not seasonally adjusted. 
+
+3. **Average Wage ($/Hour):** This denotes the Average Hourly Earnings of All Employees in the Total Private sector (CES0500000003). It reflects the average hourly earnings in dollars per hour, seasonally adjusted. 
+
+4. **House Price (USD):** This variable captures the Median Sales Price for New Houses Sold in the United States (MSPNHSUS), representing the median sales price in dollars, not seasonally adjusted. 
+
+5. **House Supply (Month's Supply):** This indicates the Monthly Supply of New Houses in the United States (MSACSR), measuring the ratio of houses for sale to houses sold, expressed in months' supply and seasonally adjusted. 
+
+These variables collectively provide a comprehensive view of economic indicators pertinent to housing affordability and the broader economic landscape. 

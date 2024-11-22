@@ -1,0 +1,33 @@
+user: look at how I've explained thse variables: 
+
+Variables of Interest
+
+For analysis, only the required variables' data sets were downloaded from FRED. This paper decided to focus on five variables to assess the problem of unaffordable housing in the US: CPI, interest rate, housing supply, median housing prices, and average wages. They are described below:
+
+CPI: This variable represents the Consumer Price Index for All Urban Consumers, for all items in the U.S. City Average, which measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Recorded monthly, this variable is measured in an index form, for which the base period is 1982-1984 where the value of the index sat at 100. Change in CPI from last year's CPI is one of the most common measures used to calculate inflation. This variable is seasonally adjusted and looks at ~ 88% of the population. (CITE 2) HERE FROM REFERENCES)
+
+Interest Rate: This variable refers to the Federal Funds Effective Rate, which is the interest rate at which depository institutions trade federal funds with each other overnight. This interest rate is the central interest rate in the US, influencing other interest rates such as the prime rate (what banks charge customers with higher credit ratings) and longer term rates (mortgages, loans, savings). This variable is recorded monthly, represented as a percentage, and is not seasonally adjusted. (CITE 3) HERE FROM REFERENCES)
+
+Average Wage: This variable denotes the Average Hourly Earnings of All Employees in the Total Private Sector. It includes premium pay for overtime and late-shift work. This was chosen over wage rates as this measures the actual return to a worker for a set period of time. It excludes benefits, irregular bonuses, retroactive pay, and payroll taxes paid by employers. This variable is measured in US Dollars per hour, recorded monthly, and is seasonally adjusted. (CITE 4) FROM REFERENCES)
+
+House Price: This variable captures the Media Sales Price for New houses Sold int he United States. The media was chosen over the average prices to remove the effects of any outliers. This variable is recorded monthly, measured in US dollars, and is not seasonally adjusted. (CITE 5) FROM REFERENCES)
+
+House Supply: This variables measures the Monthly Supply of New Houses in the United States. Measured in 'month's supply,' this refers to the ratio of new houses for sale to new houses sold. The month's supply indicates the size of the new for-sale inventory compared to the number of new houses currently being sold. This variable is recorded monthly and is seasonally adjusted. (CITE 6) FROM REFERENCES)
+
+please do the same for these two that we created: House Price Growth and Wage Rate Growth: 
+
+chatgpt: 
+
+Here’s a similar explanation for the two variables we created, following the structure of your descriptions:
+
+---
+
+**House Price Growth:**  
+This variable represents the year-over-year percentage growth rate of the Median Sales Price for New Houses Sold in the United States. It measures the percentage change in median house prices from the beginning to the end of each calendar year, providing insights into annual trends in housing market prices. This variable was calculated to better understand how rapidly house prices are increasing or decreasing in response to economic factors, such as interest rates and housing supply. Measured as a percentage, this derived variable highlights the fluctuations in house prices over time, allowing for direct comparison with other variables such as wage growth. 
+
+**Wage Growth:**  
+This variable captures the year-over-year percentage growth rate of the Average Hourly Earnings of All Employees in the Total Private Sector. It measures the annual percentage change in average hourly wages from the start to the end of each year. This calculation provides insights into how rapidly wages are growing, reflecting trends in labor market conditions and workers' earning power. Measured as a percentage, this derived variable allows for a direct comparison with house price growth, enabling a better understanding of the affordability gap and how income growth aligns with changes in housing costs over time.
+
+---
+
+These explanations maintain the clear, analytical tone of your original descriptions and tie the created variables back to the overarching research goal of understanding housing affordability. Let me know if you'd like further adjustments!

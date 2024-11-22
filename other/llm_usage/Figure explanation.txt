@@ -1,0 +1,18 @@
+user: can you write a paragraph or two about this picture? 
+
+talk about 
+- What you see in the graph, what it means for inflation rates. 
+- What implications that can have for housing affordability
+- use this website for reference about information: https://www.investopedia.com/ask/answers/correlation-inflation-houses.asp
+don't use this website for the whole section, just some points here and there
+
+the point is to talk about the figure and about how it is absolutely relevant for our analysis and to out topic
+
+chatgpt: 
+### Analysis of CPI Over Time
+
+The graph above illustrates the Consumer Price Index (CPI) trends from 2006 to 2024. CPI is a key measure of inflation, tracking changes in the price level of a market basket of consumer goods and services. The graph shows a steady increase in CPI, with notable accelerations in the past few years, suggesting higher inflation rates during those periods. This trend highlights periods of economic expansion, but also signals rising costs for consumers, particularly in housing and other essential goods.
+
+Inflation, as measured by CPI, directly impacts housing affordability. As inflation rises, the cost of living increases, including housing prices. Higher inflation often prompts the Federal Reserve to raise interest rates, making mortgages more expensive and reducing affordability for potential homebuyers. Furthermore, when inflation erodes purchasing power, individuals have less disposable income to allocate toward homeownership, exacerbating affordability challenges. Historical relationships between CPI and housing prices, as outlined on Investopedia, reveal that rising inflation can contribute to increased home prices due to higher costs for construction materials and labor.
+
+For our analysis on housing affordability, CPI serves as a crucial variable. It captures the broader economic pressures influencing housing demand and supply dynamics. By tracking CPI alongside other indicators like interest rates and housing supply, we can better understand the interplay between macroeconomic trends and their implications for the housing market. This graph underscores the importance of inflationary trends in shaping housing policies and affordability strategies, making CPI an essential component of our dataset.

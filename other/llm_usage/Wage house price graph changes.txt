@@ -1,0 +1,91 @@
+user: oka now for the wage vs huose price graph which is this code:
+
+#| warning: false
+#| message: false
+#| echo: false
+#| label: fig-wages-vs-houseprices
+#| fig-cap: 'Growth Rate of Wages and House Prices'
+
+library(ggplot2)
+library(here)
+library(arrow)
+
+ggplot(analysis_data) +
+  geom_line(aes(x = Date, y = House Price (USD)), color = "green", size = 1) +
+  geom_line(aes(x = Date, y = Average Wage ($/Hour) * 10000), color = "blue", size = 1) + 
+  scale_y_continuous(
+    name = "House Price (USD)",
+    sec.axis = sec_axis(~./10000, name = "Average Wage ($/Hour)")
+  ) +
+  labs(
+    title = "Housing Prices vs. Wages Over Time",
+    x = "Year"
+  ) +
+  theme_minimal()
+
+i want to make the following changes:
+
+1) y axis numbers should appear in full number format (e.g. 400,000) and make the lowest y value 0, don't start at 200 somthing
+2) pick better colours for both lines. these are ugly colours
+3) increase the gaps between all axis titles and the numbers as you did for me previously
+
+chatgpt: Here is the updated code with all your requested changes:
+
+```r
+#| warning: false
+#| message: false
+#| echo: false
+#| label: fig-wages-vs-houseprices
+#| fig-cap: 'Growth Rate of Wages and House Prices'
+
+library(ggplot2)
+library(here)
+library(arrow)
+
+ggplot(analysis_data) +
+  # House Price Line
+  geom_line(aes(x = Date, y = `House Price (USD)`), color = "#FF5733", size = 1) +  # Bright orange for house prices
+  # Average Wage Line
+  geom_line(aes(x = Date, y = `Average Wage ($/Hour)` * 10000), color = "#3498DB", size = 1) +  # Cool blue for wages
+  # Adjust y-axis
+  scale_y_continuous(
+    name = "House Price (USD)",
+    labels = scales::comma,  # Format y-axis numbers with commas (e.g., 400,000)
+    limits = c(0, NA),  # Start y-axis at 0
+    sec.axis = sec_axis(~./10000, name = "Average Wage ($/Hour)")
+  ) +
+  # Add labels and theme adjustments
+  labs(
+    title = "Housing Prices vs. Wages Over Time",
+    x = "Year"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.line.x = element_line(color = "black", size = 0.5),      # Add x-axis line
+    axis.line.y = element_line(color = "black", size = 0.5),      # Add y-axis line
+    axis.title.x = element_text(margin = margin(t = 10)),         # Increase gap for x-axis title
+    axis.title.y = element_text(margin = margin(r = 15)),         # Increase gap for y-axis title
+    axis.title.y.right = element_text(margin = margin(l = 15)),   # Increase gap for right y-axis title
+    axis.ticks.x = element_line(color = "grey30"),                # Add x-axis ticks
+    axis.ticks.y = element_line(color = "grey30"),                # Add y-axis ticks
+    axis.ticks.length = unit(5, "pt")                             # Adjust tick length
+  )
+```
+
+### Changes Made:
+1. **Y-Axis Numbers in Full Format**:
+   - Used `labels = scales::comma` to display numbers in comma-separated format (e.g., 400,000 instead of 400000).
+   - Set `limits = c(0, NA)` to start the y-axis at 0.
+
+2. **Better Line Colors**:
+   - House Price Line: Bright orange (`#FF5733`) to stand out.
+   - Wages Line: Cool blue (`#3498DB`) for a pleasant contrast.
+
+3. **Increased Gaps Between Axis Titles and Numbers**:
+   - Used `margin` to add spacing:
+     - `axis.title.x` for x-axis title.
+     - `axis.title.y` for left y-axis title.
+     - `axis.title.y.right` for the secondary right y-axis title.
+
+### Final Notes:
+These changes will improve readability and aesthetic appeal. Let me know if you'd like to tweak the colors further or make any additional modifications!

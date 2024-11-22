@@ -11,6 +11,7 @@
 library(tidyverse)
 library(readr)
 library(arrow)
+library(dplyr)
 
 ## Reading the datasets in this file 
 
@@ -126,6 +127,22 @@ colnames(cleaned_data) <- c(
 colnames(cleaned_data)
 head(cleaned_data)
 
+## Creating two new columns for Wage Growth Rate and House Price Growth Rate
+
+# Calculate growth rates
+analysis_data <- analysis_data %>%
+  arrange(Date) %>%  # Ensure the data is sorted by date
+  mutate(
+    `House Price Growth (%)` = ( `House Price (USD)` / lag(`House Price (USD)`) - 1) * 100,
+    `Wage Growth (%)` = ( `Average Wage ($/Hour)` / lag(`Average Wage ($/Hour)`) - 1) * 100
+  )
+
+head(analysis_data)
+colnames(analysis_data)
+
+head(analysis_data[, c("Date", "House Price Growth (%)", "Wage Growth (%)")])
+head(analysis_data[, c("Date", "House Price (USD)", "Average Wage ($/Hour)")])
+
 ## Saving data
 
-write_parquet(cleaned_data, "data/02-analysis_data/analysis_data.parquet")
+write_parquet(analysis_data, "data/02-analysis_data/analysis_data.parquet")

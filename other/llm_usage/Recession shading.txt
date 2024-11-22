@@ -1,0 +1,46 @@
+user: i wanna do two graphs, let me know what you think:
+
+1) graphing the housing supply over time. I like this code for it:
+
+#| warning: false
+#| message: false
+#| echo: false
+#| label: fig-interest-rate
+#| fig-cap: 'Federal Funds Effective Interest Rate Over Time'
+
+library(ggplot2)
+library(here)
+library(arrow)
+
+ggplot(analysis_data, aes(x = Date, y = House Supply (Month's Supply))) +
+  geom_line(color = "steelblue", size = 1) +
+  geom_vline(xintercept = as.Date(c("2008-01-01", "2020-03-01")), linetype = "dashed", color = "red") +
+  labs(title = "Housing Supply Over Time", x = "Year", y = "Month's Supply") +
+  theme_minimal()
+
+but instead of a dashed line, do you think we can shade the area in light grey when the recessions happened? so the financial crisis adn the covid pandemic. Can we shade them instead? 
+
+chatgpt: 
+
+library(ggplot2)
+library(here)
+library(arrow)
+
+# Define recession periods
+recessions <- data.frame(
+  start = as.Date(c("2008-01-01", "2020-03-01")),
+  end = as.Date(c("2009-06-01", "2021-12-01"))
+)
+
+# Plot with shaded recession areas
+ggplot(analysis_data, aes(x = Date, y = `House Supply (Month's Supply)`)) +
+  geom_line(color = "steelblue", size = 1) +
+  geom_rect(data = recessions, inherit.aes = FALSE,
+            aes(xmin = start, xmax = end, ymin = -Inf, ymax = Inf),
+            fill = "grey", alpha = 0.2) +
+  labs(
+    title = "Housing Supply Over Time",
+    x = "Year",
+    y = "Month's Supply"
+  ) +
+  theme_minimal()

@@ -3,7 +3,9 @@
 # Author: Krishna Kumar
 # Date: 20 November, 2024
 # Contact: krishna.kumar@mail.utoronto.ca
-# Pre-requisites: None
+# Pre-requisites: Create an account on 'https://fred.stlouisfed.org/' and 
+  # generate an API key by going to 'My Account' and clicking on 'API Keys' 
+  # and then clicking on 'Request API Key.'
 # Any other information needed? N/A
 
 

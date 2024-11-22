@@ -1,0 +1,16 @@
+user: great, can you write a similar paragraph about this. 
+
+chatgpt: 
+
+Here’s a descriptive paragraph for this figure:
+
+---
+
+**Figure Description and Implications:**  
+Figure @fig-growth-rates compares the annual growth rates of house prices and wages from 2006 to 2024. The data highlights a persistent gap between the two metrics, with house prices frequently outpacing wage growth. During the financial crisis of 2007–2008, house prices saw a sharp decline, with growth rates falling below -10%, while wage growth remained relatively stable. Post-2009, house prices recovered, showing strong growth from 2012 to 2016, significantly exceeding wage growth during this period. This divergence reflects a period of increasing housing demand, driven by low interest rates and insufficient housing supply, as seen in Figure @fig-housing-supply.
+
+Notably, wage growth has consistently lagged behind house price growth, contributing to worsening housing affordability over the years. For example, during the COVID-19 pandemic in 2020, while wage growth remained positive, house prices surged, reflecting the impact of supply shortages and pandemic-induced demand. Post-2022, a notable shift occurred with house price growth turning negative due to rising interest rates and reduced affordability, while wage growth maintained a steady pace. These trends emphasize the widening affordability gap and the complex interplay between wages, housing prices, and macroeconomic conditions, highlighting the challenges faced by households in balancing income growth with escalating housing costs.
+
+---
+
+Let me know if you'd like any adjustments or additions!
