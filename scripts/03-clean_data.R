@@ -128,6 +128,8 @@ colnames(cleaned_data)
 head(cleaned_data)
 
 ## Creating two new columns for Wage Growth Rate and House Price Growth Rate
+analysis_data <- cleaned_data
+head(analysis_data)
 
 # Calculate growth rates
 analysis_data <- analysis_data %>%
@@ -143,6 +145,16 @@ colnames(analysis_data)
 head(analysis_data[, c("Date", "House Price Growth (%)", "Wage Growth (%)")])
 head(analysis_data[, c("Date", "House Price (USD)", "Average Wage ($/Hour)")])
 
+## creating a new column for affordability index (house prices/average wage)
+
+# Add Affordability Index to the dataset
+analysis_data <- analysis_data %>%
+  mutate(`Affordability Index` = `House Price (USD)` / `Average Wage ($/Hour)`)
+
+# View the first few rows to confirm
+head(analysis_data[, c("Date", "House Price (USD)", "Average Wage ($/Hour)", "Affordability Index")])
+
+head(analysis_data)
 ## Saving data
 
 write_parquet(analysis_data, "data/02-analysis_data/analysis_data.parquet")
