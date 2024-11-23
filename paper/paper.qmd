@@ -60,25 +60,25 @@ Similar data sets for all variables were readily available on the FRED database,
 
 For analysis, only the required variables' data sets were downloaded from FRED. This paper decided to focus on five variables to assess the problem of unaffordable housing in the US: CPI, interest rate, housing supply, median housing prices, and average wages. They are described below:
 
--   **`CPI`:** This variable represents the Consumer Price Index for All Urban Consumers, for all items in the U.S. City Average, which measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Recorded monthly, this variable is measured in an index form, for which the base period is 1982-1984 where the value of the index sat at 100. Change in CPI from last year's CPI is one of the most common measures used to calculate inflation. This variable is seasonally adjusted and looks at \~ 88% of the population. **(CITE 2) HERE FROM REFERENCES)**
+-   ***CPI*****:** This variable represents the Consumer Price Index for All Urban Consumers, for all items in the U.S. City Average, which measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Recorded monthly, this variable is measured in an index form, for which the base period is 1982-1984 where the value of the index sat at 100. Change in CPI from last year's CPI is one of the most common measures used to calculate inflation. This variable is seasonally adjusted and looks at \~ 88% of the population. **(CITE 2) HERE FROM REFERENCES)**
 
--   **`Interest Rate`:** This variable refers to the Federal Funds Effective Rate, which is the interest rate at which depository institutions trade federal funds with each other overnight. This interest rate is the central interest rate in the US, influencing other interest rates such as the prime rate (what banks charge customers with higher credit ratings) and longer term rates (mortgages, loans, savings). This variable is recorded monthly, represented as a percentage, and is not seasonally adjusted. **(CITE 3) HERE FROM REFERENCES)**
+-   ***Interest Rate:*** This variable refers to the Federal Funds Effective Rate, which is the interest rate at which depository institutions trade federal funds with each other overnight. This interest rate is the central interest rate in the US, influencing other interest rates such as the prime rate (what banks charge customers with higher credit ratings) and longer term rates (mortgages, loans, savings). This variable is recorded monthly, represented as a percentage, and is not seasonally adjusted. **(CITE 3) HERE FROM REFERENCES)**
 
--   **`Average Wage`:** This variable denotes the Average Hourly Earnings of All Employees in the Total Private Sector. It includes premium pay for overtime and late-shift work. This was chosen over wage rates as this measures the actual return to a worker for a set period of time. It excludes benefits, irregular bonuses, retroactive pay, and payroll taxes paid by employers. This variable is measured in US Dollars per hour, recorded monthly, and is seasonally adjusted. **(CITE 4) FROM REFERENCES)**
+-   ***Average Wage:*** This variable denotes the Average Hourly Earnings of All Employees in the Total Private Sector. It includes premium pay for overtime and late-shift work. This was chosen over wage rates as this measures the actual return to a worker for a set period of time. It excludes benefits, irregular bonuses, retroactive pay, and payroll taxes paid by employers. This variable is measured in US Dollars per hour, recorded monthly, and is seasonally adjusted. **(CITE 4) FROM REFERENCES)**
 
--   **`House Price`:** This variable captures the Media Sales Price for New houses Sold int he United States. The media was chosen over the average prices to remove the effects of any outliers. This variable is recorded monthly, measured in US dollars, and is not seasonally adjusted. **(CITE 5) FROM REFERENCES)**
+-   ***House Price:*** This variable captures the Media Sales Price for New houses Sold int he United States. The media was chosen over the average prices to remove the effects of any outliers. This variable is recorded monthly, measured in US dollars, and is not seasonally adjusted. **(CITE 5) FROM REFERENCES)**
 
--   **`House Supply`:** This variables measures the Monthly Supply of New Houses in the United States. Measured in 'month's supply,' this refers to the ratio of new houses for sale to new houses sold. The month's supply indicates the size of the new for-sale inventory compared to the number of new houses currently being sold. This variable is recorded monthly and is seasonally adjusted. **(CITE 6) FROM REFERENCES)**
+-   ***House Supply:*** This variables measures the Monthly Supply of New Houses in the United States. Measured in 'month's supply,' this refers to the ratio of new houses for sale to new houses sold. The month's supply indicates the size of the new for-sale inventory compared to the number of new houses currently being sold. This variable is recorded monthly and is seasonally adjusted. **(CITE 6) FROM REFERENCES)**
 
--   **`House Price Growth`:** This variable represents the year-over-year percentage growth in the Median Sales Price for New Houses Sold in the United States. It is calculated by taking the difference between the median house price at the end of the year and the beginning of the year, dividing this difference by the value at the beginning of the year, and multiplying by 100 to express the result as a percentage. This highlights the annual rate of change in house prices, helping to track trends in housing market inflation or deflation.
+-   ***House Price Growth:*** This variable represents the year-over-year percentage growth in the Median Sales Price for New Houses Sold in the United States. It is calculated by taking the difference between the median house price at the end of the year and the beginning of the year, dividing this difference by the value at the beginning of the year, and multiplying by 100 to express the result as a percentage. This highlights the annual rate of change in house prices, helping to track trends in housing market inflation or deflation.
 
--   **`Wage Rate Growth`:** This variable reflects the year-over-year percentage growth in the Average Hourly Earnings of All Employees in the Total Private Sector. The calculation follows the same approach as house price growth: the difference between wages at the end of the year and the beginning of the year is divided by the wage value at the start of the year, then multiplied by 100 to express the result as a percentage. This variable captures how wages change annually, offering insights into trends in earning power.
+-   ***Wage Rate Growth:*** This variable reflects the year-over-year percentage growth in the Average Hourly Earnings of All Employees in the Total Private Sector. The calculation follows the same approach as house price growth: the difference between wages at the end of the year and the beginning of the year is divided by the wage value at the start of the year, then multiplied by 100 to express the result as a percentage. This variable captures how wages change annually, offering insights into trends in earning power.
 
--   `Affordability Index`: This variable measures the ratio of the Median Sales Price for New Houses Sold in the United States to the Average Hourly Earnings of All Employees in the Total Private Sector. It represents how many hours of work are required to afford a median-priced home. A higher value indicates reduced affordability, as workers would need to work more hours to buy a home.
+-   ***Affordability Index:*** This variable measures the ratio of the Median Sales Price for New Houses Sold in the United States to the Average Hourly Earnings of All Employees in the Total Private Sector. It represents how many hours of work are required to afford a median-priced home. A higher value indicates reduced affordability, as workers would need to work more hours to buy a home.
 
 ### Consumer Price Index Trends Over Time
 
-```{r, INCREASE FIGWIDTH HERE}
+```{r}
 #| warning: false
 #| message: false
 #| echo: false
@@ -301,7 +301,7 @@ Notably, wage growth has consistently lagged behind house price growth, contribu
 #| warning: false
 #| message: false
 #| echo: false
-#| label: fig-growth-rates
+#| label: fig-affordability-index
 #| fig-width: 10
 #| fig-height: 5
 #| fig-cap: 'Growth Rates of House Prices and Wages'
@@ -315,64 +315,46 @@ ggplot(analysis_data, aes(x = Date, y = `Affordability Index`)) +
   theme_minimal()
 ```
 
+**TALK ABOUT ABOVE GRAPH HERE.**
+
 # Model
 
-```{r}
-# Load necessary library
-library(tidyverse)
-
-# Fit a simple multiple linear regression model
-model <- lm(
-  formula = `Affordability Index` ~ `Interest Rate (%)` + `CPI (Index)`, 
-  data = analysis_data
-)
-
-# Summarize the model
-summary(model)
-
-```
+**ADD WORDS HERE.**
 
 The goal of our modelling strategy is twofold. Firstly,...
 
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
+Here we briefly describe the multiple linear regression model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
 
 ## Model set-up
 
 We aim to model the \*\*Affordability Index\*\*, which represents the number of hours of work required to afford a house, as a function of key economic variables such as interest rates and inflation (measured by CPI).
 
-$$y_i = y_i = \beta_0 + \beta_1 \cdot \mathrm{CPI}_i + \beta_2 \cdot \mathrm{House    Supply}_i + \epsilon_i
+$$y_i = y_i = \beta_0 + \beta_1 \cdot \mathrm{CPI}_i + \beta_2 \cdot \mathrm{House    Supply}_i + \beta_3 \cdot \mathrm{Interest Rate}_i +  \epsilon_i
 $$
 
 Where:
 
--   $y_i$ is the affordability index for observation iii, which measures the ratio of house prices to average wa ges, indicating housing affordability.
+-   $y_i$ is the affordability index for observation iii, which measures the ratio of house prices to average wages, indicating housing affordability.
 
 -   $\beta_0$ is the intercept, representing the expected value of the affordability index when all predictors are zero.
 
 -   $\beta_1$ captures the effect of the CPI (Consumer Price Index) on the affordability index, reflecting inflation.
 
--   $\beta_2$ captures the effect of the Interest Rate on the affordability index.
+-   $\beta_2$ captures the effect of the Housing Supply on the affordability index.
+
+-   $\beta_3$ captures the effect of the Interest Rate on the affordability index
 
 -   $\epsilon_i$ represents the error term, assumed to follow a normal distribution with mean 0, accounting for unexplained variability in the affordability index.
 
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.
+## Model Justification
 
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
-
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
-
-### Model justification
+**ADD WORDS HERE.**
 
 We expect a positive relationship between the size of the wings and time spent aloft. In particular...
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
+
+**ALSO ADD A DAG HERE.**
 
 # Results
 
@@ -381,42 +363,38 @@ Our results are summarized in @tbl-modelresults.
 ```{r}
 #| echo: false
 #| eval: true
-#| warning: false
-#| message: false
-
-library(rstanarm)
-
-first_model <-
-  readRDS(file = here::here("models/first_model.rds"))
-```
-
-```{r}
-#| echo: false
-#| eval: true
 #| label: tbl-modelresults
 #| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
 #| warning: false
 
+model1 <- readRDS(here("models/model_1_CPI.rds"))
+model2 <- readRDS(here("models/model_2_CPI_HousingSupply.rds"))
+model3 <- readRDS(here("models/model_3_Full.rds"))
+
 modelsummary::modelsummary(
   list(
-    "First model" = first_model
+    "Model 1" = model1, 
+    "Model 2" = model2, 
+    "Model 3" = model3
   ),
-  statistic = "mad",
   fmt = 2
 )
+
 ```
 
-# Discussion
+**TALK ABOUT RESULTS AND THEIR MEANING/IMPLICATIONS HERE.**
+
+# Discussion {#sec-discussion}
 
 ## First discussion point {#sec-first-point}
 
 If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
-## Second discussion point
+## Second discussion point {#sec-second-point}
 
 Please don't use these as sub-heading labels - change them to be what your point actually is.
 
-## Third discussion point
+## Third discussion point {#sec-third-point}
 
 ## Weaknesses and next steps
 

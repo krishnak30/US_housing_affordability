@@ -1,0 +1,18 @@
+user: ok sick can you just give me a polished table at the end of this, just give me that code so i can have a nice table to present in the pdf
+
+chatgpt: 
+
+
+model_summary %>%
+  kable(
+    caption = "Summary of Model Performance with Included Variables",
+    digits = 3, # Set decimal places
+    col.names = c("Model", "Variables Included", "R²", "Adjusted R²", "AIC", "BIC", "RMSE")
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = FALSE,
+    position = "center"
+  ) %>%
+  row_spec(0, bold = TRUE) %>% # Make the header row bold
+  add_header_above(c(" " = 1, "Model Details" = 6)) # Add a grouped header

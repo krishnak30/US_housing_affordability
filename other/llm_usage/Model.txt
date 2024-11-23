@@ -1,0 +1,87 @@
+user: ok so can you give me the r script for the model.R then? I'm thinking we can do two models: one with CPI and housing supply as predictors and then another one with housing supply, CPI and interest rate as predictors. Or we can do three, adding one predictor in each. what do you thinik?
+
+chatgpt: Your approach of starting with a simple model and gradually adding predictors is a solid plan. By fitting multiple models with incremental complexity, you can assess how each predictor contributes to explaining variations in the affordability index. This also allows you to compare model fit metrics like \( R^2 \), Adjusted \( R^2 \), AIC, and RMSE to determine the added value of including more predictors.
+
+Here’s the plan:
+
+### Models
+1. **Model 1 (Simple)**: Affordability Index ~ CPI
+   - This tests the relationship between CPI and affordability.
+2. **Model 2 (Moderate Complexity)**: Affordability Index ~ CPI + Housing Supply
+   - Adds housing supply to capture its influence.
+3. **Model 3 (Full Complexity)**: Affordability Index ~ CPI + Housing Supply + Interest Rate
+   - Adds interest rate to assess its additional explanatory power.
+
+### Benefits of this Approach
+- **Step-by-step insight**: Helps you understand how each predictor influences the outcome variable.
+- **Model comparison**: Enables you to show evidence for why a specific model is most appropriate.
+- **Pedagogical value**: Fits the assignment prompt, as you demonstrate model justification and selection.
+
+---
+
+### Suggested `model.R` Script
+
+```r
+# Load necessary libraries
+library(tidyverse)
+
+# Load the dataset
+analysis_data <- readRDS("analysis_data.rds")  # Replace with your data file if needed
+
+# Define models
+model_1 <- lm(AffordabilityIndex ~ CPI, data = analysis_data)
+model_2 <- lm(AffordabilityIndex ~ CPI + HousingSupply, data = analysis_data)
+model_3 <- lm(AffordabilityIndex ~ CPI + HousingSupply + InterestRate, data = analysis_data)
+
+# Save models for future use
+saveRDS(model_1, file = "model_1_CPI.rds")
+saveRDS(model_2, file = "model_2_CPI_HousingSupply.rds")
+saveRDS(model_3, file = "model_3_Full.rds")
+
+# Summarize models
+summary(model_1)
+summary(model_2)
+summary(model_3)
+
+# Compare models
+model_comparison <- tibble(
+  Model = c("Model 1: CPI", "Model 2: CPI + Housing Supply", "Model 3: Full Model"),
+  R2 = c(summary(model_1)$r.squared,
+         summary(model_2)$r.squared,
+         summary(model_3)$r.squared),
+  Adj_R2 = c(summary(model_1)$adj.r.squared,
+             summary(model_2)$adj.r.squared,
+             summary(model_3)$adj.r.squared),
+  AIC = c(AIC(model_1), AIC(model_2), AIC(model_3)),
+  BIC = c(BIC(model_1), BIC(model_2), BIC(model_3)),
+  RMSE = c(
+    sqrt(mean(residuals(model_1)^2)),
+    sqrt(mean(residuals(model_2)^2)),
+    sqrt(mean(residuals(model_3)^2))
+  )
+)
+
+# Display model comparison
+print(model_comparison)
+
+# Save the model comparison table as CSV for report
+write_csv(model_comparison, "model_comparison.csv")
+
+# Optional: Diagnostic plots
+par(mfrow = c(1, 3))  # Arrange plots in 1 row, 3 columns
+plot(model_1, which = 1, main = "Model 1: Residuals vs Fitted")
+plot(model_2, which = 1, main = "Model 2: Residuals vs Fitted")
+plot(model_3, which = 1, main = "Model 3: Residuals vs Fitted")
+```
+
+---
+
+### Notes:
+1. **Save Models**: Each model is saved as an `.rds` file for future use in other scripts or sections of your report.
+2. **Comparison Table**: The `model_comparison` table provides a clear summary of metrics for each model, such as \( R^2 \), AIC, and RMSE. This can directly go into your paper as a results table.
+3. **Diagnostics**: Residuals vs. Fitted plots help assess assumptions like linearity and homoscedasticity.
+4. **Optional Steps**:
+   - Conduct cross-validation to evaluate model performance on unseen data.
+   - Add interaction terms if you suspect relationships between predictors (e.g., CPI and Housing Supply might interact).
+
+What do you think? Would you like more details on specific aspects, like diagnostic checks or cross-validation?
