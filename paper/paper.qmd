@@ -32,19 +32,19 @@ This report uses monthly economic data derived from the Federal Reserve Economic
 
 The Federal Research Economic Data provides information about the people and economy of the United States, with a goal to support economic growth, assist in making informed decisions, and enhance scientific knowledge. Housing affordability has emerged as a growing concern in the US, with people facing a shortage of houses and constantly increasing prices due to a variety of factors. These challenges, compounded by the COVID-19 pandemic, have left many families struggling to access affordable housing. **(CITE 1) FROM REFERENCES)** Studying this data is essential in assessing the economic factors affecting housing affordability as well as the financial wellbeing of individuals. The data sets were all downloaded separately using the FRED API and then combined during the data cleaning.
 
-## Measurement (LEFT TO DO)
+## Measurement (PARTIALLY LEFT TO DO)
 
 For each variable:
 
--   `CPI`:
+-   ***CPI*****:** THe CPI is based on prices for food, clothing, shelter, and fuels; transportation fares; service fees (e.g., water and sewer service); and sales taxes. Prices are collected monthly from about 4,000 housing units and approximately 26,000 retail establishments across 87 urban areas. To calculate the index, price changes are averaged with weights representing their importance in the spending of the particular group. The index measures price changes (as a percent change) from a predetermined reference date.
 
--   `Interest Rate`:
+-   ***Interest Rate:*** The Federal Open Market Committee (FOMC) meets eight times a year to determine the federal funds target rate. These rates are then announced to the public.
 
--   `Average Wage`:
+-   ***Average Wage:*** **Have to go through website for this**
 
--   `House Price`:
+-   `House Price`: **No method of measurement given for this.**
 
--   `House Supply`:
+-   `House Supply`: **No method of measurement given for this.**
 
 ## Data Cleaning
 
@@ -295,7 +295,7 @@ Figure @fig-growth-rates compares the annual growth rates of house prices and wa
 
 Notably, wage growth has consistently lagged behind house price growth, contributing to worsening housing affordability over the years. For example, during the COVID-19 pandemic in 2019, while wage growth remained positive, house prices surged, reflecting the impact of supply shortages and pandemic-induced demand. Post-2022, a notable shift occurred with house price growthdeclining due to rising interest rates and reduced affordability, while wage growth maintained a steady pace. These trends emphasize the widening affordability gap and the complex interplay between wages, housing prices, and macroeconomic conditions, highlighting the challenges faced by households in balancing income growth with escalating housing costs.
 
-### Affordability Index (CLEAN THIS UP)
+### Affordability Index 
 
 ```{r}
 #| warning: false
@@ -311,19 +311,31 @@ library(ggplot2)
 
 ggplot(analysis_data, aes(x = Date, y = `Affordability Index`)) +
   geom_line(color = "blue") +
-  labs(x = "Year", y = "Affordability Index") +
-  theme_minimal()
+  labs(
+    x = "Year",
+    y = "Affordability Index"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)), # Adds margin above the x-axis title
+    axis.title.y = element_text(margin = margin(r = 10)), # Adds margin to the right of the y-axis title
+    axis.text.x = element_text(margin = margin(t = 5)),   # Adds margin above the x-axis numbers
+    axis.text.y = element_text(margin = margin(r = 5))    # Adds margin to the right of the y-axis numbers
+  )
+
 ```
 
-**TALK ABOUT ABOVE GRAPH HERE.**
+Figure @fig-affordability-index presents the trends in the affordability index from 2006 to 2024, illustrating fluctuations in the cost of housing relative to wages. The affordability index is a key metric that represents the number of work hours required to afford a house, with higher values indicating greater financial strain on individuals. The index shows notable volatility over time, particularly during key economic events. From 2008 to 2011, the index declined significantly, reflecting improved affordability during the global financial crisis, likely due to falling house prices and stabilizing wages. However, affordability worsened from 2012 onwards, as the index steadily increased, peaking around 2020. This peak coincides with rising house prices during the pandemic-driven housing boom, requiring more work hours to afford a home. Post-2020, the index shows a downward trend, reflecting corrections in housing prices amid rising interest rates.
 
 # Model
 
-**ADD WORDS HERE.**
+In this section, we develop and evaluate a series of models to understand the factors influencing housing affordability. The major challenge lies in selecting a model which is balanced in complexity and provides insightful results. We will be analyzing how CPI, housing supply, and interest rates affect the housing affordability in three separate models, adding one after the other. The goal of out modelling strategy is to find the effect of each of the predictor variables on the affordability index and their strengths.
 
-The goal of our modelling strategy is twofold. Firstly,...
+Because housing prices or wage rates alone can't determine affordability, we created an affordability index to better measure affordability. This index has a simply formula where we divide housing prices by average wages, leading to a number that represents how many hours an individual would need to work to buy a house outright.
 
-Here we briefly describe the multiple linear regression model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
+We begin with a single predictor, CPI, to assess it's impact on housing affordability. Then, we add housing supply for model 2 and interest rates for model 3, arriving at a full model that shows us the effect of each of these variables marginally, as well as collectively. This step wise approach helps ensure that the model remains interpretable. Moreover, performance measures such as R2, Adjusted R\^2, AIC, BIC, and RMSE were used to evaluate model performance.
+
+**Here we briefly describe the multiple linear regression model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].**
 
 ## Model set-up
 
@@ -348,11 +360,13 @@ Where:
 
 ## Model Justification
 
-**ADD WORDS HERE.**
+The linear regression model was chosen for this analysis to understand how each predictor variable affects affordability of housing. The affordability index is key to understanding patterns of affordability in the housing market; This is something average wages or house prices cannot determine along. CPI, housing supply, and interest rates all have impacts on housing affordability we expect to see a strong positive correlation between the affordability index and CPI and interest rates. Meaning that as these variables increase, the affordability index increases as well, indicating worsening affordability. However, we expect to see a negative relationship between the affordability index and housing supply. We also aim to measure which of these variables has a stronger impact on housing affordability.
 
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
+An increase in interest rates increases the mortgage rates in turn and decreases housing affordability. An increase in CPI represents an increase in inflation, which then usually leads to an increase in housing prices. Lastly, a decrease in the housing supply leads to a shortage of homes and therefore, leads to increased housing prices and lower affordability. These factors work alone and together, to influence the financial burden on individuals. We decided not to choose wage growth or house price growth as predictor variables in our analysis as those would have a direct conflict with the outcome variable, and would lead to an inaccurate model.
 
-We can use maths by including latex between dollar signs, for instance $\theta$.
+We opted for a linear regression model due to its capacity to quantify the marginal, and collective, effects of each predictor (CPI, housing supply, and interest rates) on housing affordability. This structure is well suited to match the topic and context of our analysis.
+
+All modelling was conducted using the Base R package **(CITE HERE)**, specifically using the lm() function from the statistical package for linear regression analysis.
 
 **ALSO ADD A DAG HERE.**
 
@@ -364,7 +378,7 @@ Our results are summarized in @tbl-modelresults.
 #| echo: false
 #| eval: true
 #| label: tbl-modelresults
-#| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
+#| tbl-cap: "Model Performance Summary showing improved fit and accuracy as Housing Supply and Interest Rates are added, with $R^2$ increasing from 0.370 in Model 1 to 0.471 in Model 3, and RMSE decreasing by over 70 points"
 #| warning: false
 
 model1 <- readRDS(here("models/model_1_CPI.rds"))
@@ -382,7 +396,42 @@ modelsummary::modelsummary(
 
 ```
 
-**TALK ABOUT RESULTS AND THEIR MEANING/IMPLICATIONS HERE.**
+Table @tbl-modelresults summarizes the performance metrics for our three models, with progressively added variables. Model 1, which only uses CPI as a predictor, achieves an $R^2$ of 0.370, indicating that CPI alone explains about 37% of the variance in the affordability index. Model 2 uses housing supply as an added predictor and achieves only a 0.005% increase in $R^2$ , indicating that housing supply has a very minute impact on the variation of the affordability index. Moreover, model 2 only sees a very small reduction in the RMSE (850.31) showing a status-quo in predictive accuracy and model fit. This allows us to conclude that housing supply, when combined with CPI does not produce an impact that is statistically significant.
+
+Model 3, which incorporates all three predictor variables, shows the largest improvement, with $R^2$ rising to 46.4% and RMSE dropping to 782.15, reflecting a stronger model fit. Moreover, model 3 also sees the lowest values of AIC and BIC that indicate that model 3 is the best model as it balances fit and complexity most effectively. This progression highlights the benefit of adding contextual variables like housing supply and interest rates to better capture the accuracy of the model, as well as analyzing the marginal impacts of each predictor variable.
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: fig-modelresultsgraph
+#| fig-cap: "Coefficient estimates with 95% confidence intervals across three models, showing that CPI and interest rate positively affect the affordability index, reducing affordability, while an increase in housing supply improves affordability."
+#| fig-width: 10
+#| fig-height: 5
+
+library(modelsummary)
+
+modelplot(
+  list("Model 1" = model1, "Model 2" = model2, "Model 3" = model3),
+  coef_omit = "(Intercept)"
+) +
+  theme_minimal() +
+  labs(
+    x = "Estimate",
+    y = "Predictor Variables"
+  ) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)), 
+    axis.title.y = element_text(margin = margin(r = 10)), 
+    axis.text.x = element_text(margin = margin(t = 5)),   
+    axis.text.y = element_text(margin = margin(r = 5))    
+  )
+
+
+```
+
+Moreover, @fig-modelresultsgraph visually represents the coefficients of the predictors in the three models, with their corresponding confidence intervals. Each point represents the estimated effect size (coefficient) of a predictor, and the lines extending from each point indicate the range of uncertainty (confidence intervals).
+
+The CPI coefficients remain positive for all three models, indicating that higher inflation (measured by CPI) is associated with a higher affordability index (i.e. less affordable housing). However, we see that the coefficients for housing supply are in the negatives for both models it's used as a predictor in. Suggesting that an increase in housing supply improves affordability, which is consistent with our expectations. Lastly, the coefficient for interest rate is strongly positive, indicating that higher interest rates significantly increase the affordability index (worsening affordability), likely due to higher mortgage payments. The wider confidence intervals of housing supply and interest rate depict uncertainty, while the absence of a confidence interval in CPI represents more statistically precise estiamtes. The results we have seen from @tbl-modelresults and @fig-modelresultsgraph are completely consistent with our broad economic expectations, however, this model has room for improvement in its predictive accuracy, model fit, and certainty.
 
 # Discussion {#sec-discussion}
 
@@ -440,13 +489,30 @@ In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. Th
 #| eval: true
 #| message: false
 #| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
+#| label: fig-diagnostic-plot
+#| fig-cap: "Diagnostic Plots of Model 3 show that assumptions are largely met"
 #| fig-subcap: ["Trace plot", "Rhat plot"]
 #| layout-ncol: 2
 
+model1 <- readRDS(here("models/model_1_CPI.rds"))
+model2 <- readRDS(here("models/model_2_CPI_HousingSupply.rds"))
+model3 <- readRDS(here("models/model_3_Full.rds"))
+
+# Generate diagnostic plots for model1
+par(mfrow = c(2, 2)) # Set layout for 4 plots
+plot(model3)
 
 ```
+
+The diagnostic plot for Model 3 is given in @fig-diagnostic-plot and we notice the following:
+
+1.  **Residuals vs. Fitted**: The residuals display a somewhat random scatter around the zero line, indicating that the linearity assumption is largely met. However, slight deviations suggest potential minor nonlinearity, particularly in specific ranges of fitted values. This indicates room for improvement but does not severely undermine the model's reliability.
+
+2.  **Q-Q Plot**: The residuals follow a relatively straight line, indicating that the assumption of normality is generally satisfied. Small deviations at the tails are visible, but these are minor and unlikely to significantly impact inference or predictions.
+
+3.  **Scale-Location Plot**: The residuals appear to be evenly spread, demonstrating that the assumption of homoscedasticity (constant variance of errors) is broadly met. There are slight variations in spread, but these are relatively minor and unlikely to skew results.
+
+4.  **Residuals vs. Leverage**: A few points with slightly higher leverage are observed, but their Cook's distance values indicate that they are not excessively influential. These points warrant attention but do not dominate the overall model.
 
 \newpage
 

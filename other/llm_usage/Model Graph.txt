@@ -1,0 +1,17 @@
+User: can you make a graph depicting the model coefficients and confidence intervals as well?
+
+
+chatgpt: 
+
+library(modelsummary)
+
+modelplot(
+  list("Model 1" = model1, "Model 2" = model2, "Model 3" = model3),
+  coef_omit = "(Intercept)"
+) +
+  theme_minimal() +
+  labs(
+    title = "Comparison of Coefficients Across Models",
+    x = "Estimate",
+    y = "Predictor Variables"
+  )
