@@ -459,30 +459,7 @@ Weaknesses and next steps should also be included.
 
 # Model details {#sec-model-details}
 
-## Posterior predictive check
-
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows...
-
-```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
-
-
-```
-
 ## Diagnostics
-
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
 
 ```{r}
 #| echo: false
@@ -506,7 +483,7 @@ plot(model3)
 
 The diagnostic plot for Model 3 is given in @fig-diagnostic-plot and we notice the following:
 
-1.  **Residuals vs. Fitted**: The residuals display a somewhat random scatter around the zero line, indicating that the linearity assumption is largely met. However, slight deviations suggest potential minor nonlinearity, particularly in specific ranges of fitted values. This indicates room for improvement but does not severely undermine the model's reliability.
+1.  **Residuals vs. Fitted**: The residuals display a somewhat random scatter around the zero line, indicating that the linearity assumption is largely met. However, slight deviations suggest potential minor non linearity, particularly in specific ranges of fitted values. This indicates room for improvement but does not severely undermine the model's reliability.
 
 2.  **Q-Q Plot**: The residuals follow a relatively straight line, indicating that the assumption of normality is generally satisfied. Small deviations at the tails are visible, but these are minor and unlikely to significantly impact inference or predictions.
 
