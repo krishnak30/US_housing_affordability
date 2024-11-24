@@ -36,7 +36,7 @@ The Federal Research Economic Data provides information about the people and eco
 
 For each variable:
 
--   ***CPI*****:** THe CPI is based on prices for food, clothing, shelter, and fuels; transportation fares; service fees (e.g., water and sewer service); and sales taxes. Prices are collected monthly from about 4,000 housing units and approximately 26,000 retail establishments across 87 urban areas. To calculate the index, price changes are averaged with weights representing their importance in the spending of the particular group. The index measures price changes (as a percent change) from a predetermined reference date.
+-   ***CPI*****:** The CPI is based on prices for food, clothing, shelter, and fuels; transportation fares; service fees (e.g., water and sewer service); and sales taxes. Prices are collected monthly from about 4,000 housing units and approximately 26,000 retail establishments across 87 urban areas. To calculate the index, price changes are averaged with weights representing their importance in the spending of the particular group. The index measures price changes (as a percent change) from a predetermined reference date.
 
 -   ***Interest Rate:*** The Federal Open Market Committee (FOMC) meets eight times a year to determine the federal funds target rate. These rates are then announced to the public.
 
@@ -48,7 +48,7 @@ For each variable:
 
 ## Data Cleaning
 
-The main aspect of the data cleaning was merging all five data sets into one data set. Moreover, the columns were renamed to remove any informal names and two new columns were created using the existing data sets: House Prices Growth (%) and Wage Growth (%). This was done using the simple formula of \_\_\_\_ and to help with year over year change analysis of the house prices and wage rates.
+The main aspect of the data cleaning was merging all five data sets into one data set. Moreover, the columns were renamed to remove any informal names and two new columns were created using the existing data sets: House Prices Growth (%) and Wage Growth (%). This was done using the simple formula of (House Price 2 - House Price 1)/House Price 1, calculating the percentage change. The same was done for average wages. This allowed us to analyse the growth rates year over year and get a sense of how fast each variable was growing through time. Additionally, another column was created titled 'Affordability Index.' This column was created by dividing the values of House Prices by the Average Wage in the same rows. This gave us an outcome of the number of hours an individual would have to work to buy a house outright, serving as a good indicator of housing affordability, especially when looking at the data through a long-term lens.
 
 ## Data Limitations and Similar Data sets
 
@@ -295,7 +295,7 @@ Figure @fig-growth-rates compares the annual growth rates of house prices and wa
 
 Notably, wage growth has consistently lagged behind house price growth, contributing to worsening housing affordability over the years. For example, during the COVID-19 pandemic in 2019, while wage growth remained positive, house prices surged, reflecting the impact of supply shortages and pandemic-induced demand. Post-2022, a notable shift occurred with house price growthdeclining due to rising interest rates and reduced affordability, while wage growth maintained a steady pace. These trends emphasize the widening affordability gap and the complex interplay between wages, housing prices, and macroeconomic conditions, highlighting the challenges faced by households in balancing income growth with escalating housing costs.
 
-### Affordability Index 
+### Affordability Index
 
 ```{r}
 #| warning: false
@@ -335,11 +335,11 @@ Because housing prices or wage rates alone can't determine affordability, we cre
 
 We begin with a single predictor, CPI, to assess it's impact on housing affordability. Then, we add housing supply for model 2 and interest rates for model 3, arriving at a full model that shows us the effect of each of these variables marginally, as well as collectively. This step wise approach helps ensure that the model remains interpretable. Moreover, performance measures such as R2, Adjusted R\^2, AIC, BIC, and RMSE were used to evaluate model performance.
 
-**Here we briefly describe the multiple linear regression model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].**
+Here we briefly describe the multiple linear regression model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
 
 ## Model set-up
 
-We aim to model the \*\*Affordability Index\*\*, which represents the number of hours of work required to afford a house, as a function of key economic variables such as interest rates and inflation (measured by CPI).
+We aim to model the Affordability Index, which represents the number of hours of work required to purchast a house outright, as a function of key economic variables such as interest rates and inflation (measured by CPI).
 
 $$y_i = y_i = \beta_0 + \beta_1 \cdot \mathrm{CPI}_i + \beta_2 \cdot \mathrm{House    Supply}_i + \beta_3 \cdot \mathrm{Interest Rate}_i +  \epsilon_i
 $$
@@ -401,6 +401,8 @@ Table @tbl-modelresults summarizes the performance metrics for our three models,
 Model 3, which incorporates all three predictor variables, shows the largest improvement, with $R^2$ rising to 46.4% and RMSE dropping to 782.15, reflecting a stronger model fit. Moreover, model 3 also sees the lowest values of AIC and BIC that indicate that model 3 is the best model as it balances fit and complexity most effectively. This progression highlights the benefit of adding contextual variables like housing supply and interest rates to better capture the accuracy of the model, as well as analyzing the marginal impacts of each predictor variable.
 
 ```{r}
+#| warning: false
+#| message: false
 #| echo: false
 #| eval: true
 #| label: fig-modelresultsgraph
@@ -435,19 +437,55 @@ The CPI coefficients remain positive for all three models, indicating that highe
 
 # Discussion {#sec-discussion}
 
-## First discussion point {#sec-first-point}
+## Overview: What Is Done In This Paper?  {#sec-overview}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
+This paper investigates housing affordability in the United States over the period of 2006–2024 by developing a Affordability Index. The index measures the number of hours of work required to purchase a median-priced home and serves as a metric for gauging the accessibility of home ownership across time, especially when analysed through a long-term lens. Using multiple linear regression, this paper examines the influence of key economic variables—Consumer Price Index (CPI), housing supply, and interest rates—on housing affordability. These factors were chosen because they capture inflationary pressures, supply constraints, and monetary policy, which are all fundamental drivers of housing market dynamics.
 
-## Second discussion point {#sec-second-point}
+To conduct the analysis, five data sets from FRED were downloaded, compiled, and processed to align temporal and unit measurements. The model specifications were carefully designed to progressively evaluate the contribution of each predictor, starting with CPI as a standalone variable, followed by the inclusion of housing supply, and finally incorporating interest rates. This approach allowed for a clearer understanding of how these variables individually and collectively influence affordability. The results offer critical insights into how shifts in macroeconomic factors affect home-buying accessibility and shed light on the broader housing market trends over the last two decades.
 
-Please don't use these as sub-heading labels - change them to be what your point actually is.
+## Key Findings {#sec-key-findings}
 
-## Third discussion point {#sec-third-point}
+### Relationship Between CPI (Inflation) and the Affordability Index  {#sec-CPI}
 
-## Weaknesses and next steps
+The positive and statistically significant relationship between CPI and the affordability index confirms that higher inflation leads to reduced affordability. Inflation, as measured by the CPI, directly correlates with rising housing costs because construction materials, labor, and overall living expenses increase. As CPI rises, potential homebuyers face higher costs not only for housing but also for other goods and services, reducing their disposable income for mortgage payments. This finding highlights the economic strain placed on individuals during periods of inflation and highlights the need for policies that mitigate inflationary pressures in housing markets.
 
-Weaknesses and next steps should also be included.
+### Relationship Between Housing Supply and the Affordability Index  {#sec-housing-supply}
+
+The negative coefficient associated with housing supply indicates that an increase in available housing improves affordability. When housing supply grows, competition among buyers decreases, stabilizing or reducing home prices. This relationship aligns with economic theory, which states that greater supply relative to demand leads to price reductions. However, the relatively modest effect size, from our model, suggests that while increasing supply is a necessary condition for improving affordability, it may not be sufficient on its own without addressing broader structural issues, such as zoning restrictions and construction costs. However, this could also be due to the limitations of the model.
+
+### Relationship Between Interest Rates and the Affordability Index
+
+Interest rates exert the most substantial impact on affordability among the predictors. The strong positive coefficient indicates that rising interest rates significantly worsen affordability by increasing mortgage costs, as interest rates affect other rates like the mortgage rates as well. For instance, a higher interest rate raises monthly payments, reducing the number of households that qualify for home loans. Moreover, looking at this from the perspective of the potential hoome buyer, it limits their choices and they are often forced to decide against buying a home and renting. This finding emphasizes the critical role of monetary policy in shaping housing market accessibility. Policymakers must carefully consider the downstream effects of interest rate hikes, especially in a high-inflation environment where affordability is already strained. While interest rates are often adjusted to combat the problem of growing inflation in an economy, its subsequent effects that affect the quality of life of citizens need to be considered as well.
+
+## Limitations {#sec-limitations}
+
+### Data Aggregation {#sec-data-aggregation}
+
+The data sets were aggregated at the national level, which limits the analysis' ability to capture regional variations in housing affordability. Housing markets in urban centers like San Francisco or New York operate under vastly different conditions than rural markets, and these distinctions are obscured in a national-level analysis. Studying the differences in housing affordability in rural vs urban areas as well as east vs west coast would be a very interesting, relevant, and topical concept to understand the true nature of housing affordability in the US. Future studies should aim to disaggregate data to better account for these geographic differences and further the analysis.
+
+### Model Fit and Scope {#sec-model-fit-and-scope}
+
+The adjusted $R^2$ values for the models range between 37% and 46%, indicating that the predictors explain less than half of the variation in the Affordability Index. This suggests that other unobserved factors—such as demographic shifts, wage inequality, government policies and support, regional income distributions, and renting and the supply of apartment complexes—play significant roles in determining housing affordability. For instance, regional wage disparities or the availability of housing subsidies could significantly influence affordability but were not included in this analysis.
+
+### Exclusion of Other Influential Variables {#sec-exclusion-of-variables}
+
+As the adjusted $R^2$ values for the model were relatively low, we can decipher that there are several other factors that account for the remaining variance in the affordability index. Key factors such as household savings rates, employment stability, government intervention programs (e.g., tax credits or housing subsidies), rental properties, apartment complexes, condos, planning restrictions, and regional variations were not included due to data limitations. These factors likely play a critical role in shaping housing affordability but remain unexplored in this analysis. This, in no way, is a negative point of this paper, rather, it serves as a suggestion for extension of this analysis in further studies where we could understand the problem of housing affordability even more accurately.
+
+## Future Steps
+
+### Incorporating Additional Predictors
+
+Expanding the model to include variables such as wage growth, population density, regional housing prices and income, and construction costs could enhance its explanatory power. For instance, wage growth relative to inflation could provide deeper insights into purchasing power, while construction costs could shed light on the supply-side challenges of the housing market. Conducting state- or city-level analyses would allow for a more granular understanding of housing affordability trends. This approach could highlight regional disparities and inform localized policy interventions. For example, comparing affordability in high-cost metropolitan areas to that in rural regions could reveal targeted strategies for improving housing access and government intervention.
+
+### **Exploring Non-Linear Relationships**
+
+Future studies could employ non-linear modeling techniques, such as machine learning or interaction models like a Bayesian model, to capture more complex dynamics between variables. For example, the interaction between interest rates and inflation may have compounding effects on affordability that are not captured by a linear framework.
+
+### **Evaluating Policy Interventions**
+
+Research focusing on the effectiveness of government programs, such as housing subsidies, rent control, or first-time homebuyer incentives, could provide actionable recommendations for policymakers. Evaluating these interventions in the context of affordability trends would help determine which policies have the most significant impact.
+
+In conclusion, this paper contributes to the broader understanding of housing affordability by analyzing the interplay of inflation, housing supply, and interest rates. The findings emphasize the critical role of macroeconomic variables in shaping housing accessibility and highlight areas where policymakers can intervene to mitigate affordability challenges. While the analysis has its limitations, it lays the groundwork for future research to build more comprehensive models and address the pressing issue of housing affordability in the United States.
 
 \newpage
 
@@ -468,8 +506,9 @@ Weaknesses and next steps should also be included.
 #| warning: false
 #| label: fig-diagnostic-plot
 #| fig-cap: "Diagnostic Plots of Model 3 show that assumptions are largely met"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
+#| fig-width: 10
+#| fig-height: 5
+
 
 model1 <- readRDS(here("models/model_1_CPI.rds"))
 model2 <- readRDS(here("models/model_2_CPI_HousingSupply.rds"))
