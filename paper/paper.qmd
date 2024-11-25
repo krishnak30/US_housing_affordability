@@ -485,7 +485,7 @@ Future studies could employ non-linear modeling techniques, such as machine lear
 
 ### **Evaluating Policy Interventions**
 
-Research focusing on the effectiveness of government programs, such as housing subsidies, rent control, or first-time homebuyer incentives, could provide actionable recommendations for policymakers. Evaluating these interventions in the context of affordability trends would help determine which policies have the most significant impact.
+Research focusing on the effectiveness of government programs, such as housing subsidies, rent control, or first-time home buyer incentives, could provide actionable recommendations for policymakers. Evaluating these interventions in the context of affordability trends would help determine which policies have the most significant impact.
 
 In conclusion, this paper contributes to the broader understanding of housing affordability by analyzing the interplay of inflation, housing supply, and interest rates. The findings emphasize the critical role of macroeconomic variables in shaping housing accessibility and highlight areas where policymakers can intervene to mitigate affordability challenges. While the analysis has its limitations, it lays the groundwork for future research to build more comprehensive models and address the pressing issue of housing affordability in the United States.
 
@@ -497,9 +497,7 @@ In conclusion, this paper contributes to the broader understanding of housing af
 
 # Additional data details
 
-# Model details {#sec-model-details}
-
-## Diagnostics
+## Model Diagnostics {#sec-model-details}
 
 ```{r}
 #| echo: false
@@ -604,6 +602,10 @@ These validation techniques are consistent with standard practices in housing su
 ### Conclusion
 
 By integrating comprehensive sampling strategies, inclusive recruitment methods, and rigorous data validation processes, this idealized survey methodology aims to provide a nuanced understanding of housing affordability in the United States. Drawing on established practices from surveys like those conducted by the CMHC, this approach addresses the limitations of existing datasets and offers valuable insights for policymakers and researchers seeking to address housing affordability challenges. While most measures of housing affordability focus on the quantitative factors, we aim to create a balance and bring in the essential qualitative factors needed to really understand how an individual or a household feels about their financial situation and housing affordability. For example, we plan to include questions about whether respondents feel comfortable meeting their mortgage or rent payments, and if they feel secure in their ability to handle unexpected financial shocks, such as medical bills or job loss.
+
+The survey can be found at this link: <https://forms.gle/xLyZsGiEEDcwPnH66>
+
+## Copy of the Survey
 
 \newpage
 
