@@ -1,0 +1,285 @@
+user: amazing, now the last step is to design a survey. keep in mind this whole section that we just did. I need you to create a survey which will be conducted on google forms to help analyze housing affordability using themethods we just talked about. would you like an example survey that we created for out previous paper?
+
+
+chatgpt: Yes, having an example survey would be incredibly helpful! It would provide a good starting point for structuring the new survey and ensuring that it aligns with both the methodology we’ve developed and the expectations of your paper. Once I review the example, I can craft a tailored survey for housing affordability that incorporates both qualitative and quantitative questions, as well as the sampling and data collection strategies we've outlined. Please share the example!
+
+
+
+user: this is the survey we did for our previous paper:
+
+D Copy of the Survey
+2024 U.S. Presidential Election Survey
+Introduction: Thank you for your interest in the 2024 U.S. Presidential Election Survey. The 2024
+U.S. Presidential Election is set to take place on November 5, 2024. This election will decide the
+next President of the United States, a position that holds significant influence over national and global
+policies.
+Your participation in this survey is entirely voluntary, and you can choose to withdraw at any time
+without any consequences. The information collected will be used solely for research purposes to gain
+insights into voter preferences and trends as we approach this important election. All responses will
+remain confidential and will be reported only in aggregate form.
+Contact Information:
+• Denise Chang, University of Toronto. Email: dede.chang@mail.utoronto.ca
+• Shamayla Durrin, University of Toronto. Email: shamayla.islam@mail.utoronto.ca
+• Krishna Kumar, University of Toronto. Email: krishna.kumar@mail.utoronto.ca
+Section 1: Voting Intention
+28
+1. Consent to Participate By clicking the button below, I consent to participate in this survey, and
+I agree that my responses may be used for research purposes, including analysis and reporting on
+voter sentiment related to the 2024 U.S. Presidential Election. I understand that my participation
+is voluntary and that I can withdraw at any time without any consequences. My responses will
+be kept confidential and will be used only in aggregate form.
+• I agree
+2. How likely are you to vote in the 2024 U.S. Presidential Election?
+• Not likely at all
+• Not very likely
+• Somewhat likely
+• Extremely likely
+• Prefer not to say
+3. If the 2024 U.S. Presidential Election were held today, who would you vote for?
+• Kamala Harris (Democratic Party)
+• Donald Trump (Republican Party)
+• Undecided
+• Prefer not to say
+4. If you answered “Undecided” in the previous question, who are you leaning towards?
+• Kamala Harris (Democratic Party)
+• Donald Trump (Republican Party)
+• Prefer not to say
+Section 2: Key Issue Priorities
+5. What are the three most important issues influencing your vote in this election? (Select up to 3)
+• Economy
+• Immigration
+• Healthcare
+• National Security
+• Education
+• Climate Change
+6. **How has the state of the U.S. economy influenced your voting choice?
+• Not at all
+• Somewhat
+• Greatly
+• Unsure
+29
+Section 3: Voting History
+7. Did you vote in the 2020 U.S. Presidential Election?
+• Yes
+• No
+• Prefer not to say
+8. If you voted in 2020, for whom did you vote?
+• Joe Biden (Democratic Party)
+• Donald Trump (Republican Party)
+• Prefer not to say
+Section 4: Voter Engagement
+9. How motivated are you to vote in the 2024 election compared to past elections?
+• Less motivated
+• About the same
+• More motivated
+• Unsure
+10. Which of the following describes your voting method?
+• I plan to vote in person on Election Day
+• I plan to vote early in person
+• I plan to vote by mail
+• I have already voted (via early voting or mail-in)
+• I do not plan to vote
+Section 5: Demographic Questions
+11. What is your age range? (years)
+• 18-24
+• 25-34
+• 35-44
+• 45-54
+• 55-64
+• 65 or older
+• Prefer not to say
+12. What gender do you identify as?
+• Male
+30
+• Female
+• Non-binary
+• Prefer not to say
+13. Which of the following best describes your race or ethnicity?
+• White or Caucasian
+• Black or African American
+• Hispanic or Latino of any race
+• Asian
+• Other or multiple races
+14. What is the highest level of education you have completed?
+• Less than high school
+• High school diploma or GED
+• Some college
+• No degree
+• Associate degree
+• Bachelor’s degree
+• Graduate or professional degree
+• Prefer not to say
+15. What is your current employment status?
+• Employed full-time
+• Employed part-time
+• Self-employed
+• Unemployed
+• Student
+• Retired
+• Prefer not to say
+16. Do you consider yourself a supporter of any of the following political parties?
+• Democratic Party
+• Republican Party
+• Independent
+• Prefer not to say
+End Message:
+Thank you for completing this survey! Your responses are valuable in understanding voter opinions
+and trends in the lead-up to the 2024 U.S. Presidential Election
+
+
+
+chatgpt: Using the structure of your previous survey as a reference, here’s a tailored survey to analyze **housing affordability**:
+
+---
+
+# Housing Affordability Survey
+
+### **Introduction**
+Thank you for participating in the Housing Affordability Survey. This survey aims to understand how individuals and households perceive and experience housing affordability in the United States. Your responses will help in assessing the financial and social factors contributing to housing affordability challenges.
+
+Participation in this survey is entirely voluntary, and you can choose to withdraw at any time without consequences. The information collected will be used solely for research purposes. Your responses will remain confidential and will only be reported in aggregate form.
+
+**Contact Information:**
+- Krishna Kumar, University of Toronto. Email: krishna.kumar@mail.utoronto.ca
+
+---
+
+### **Section 1: Consent**
+1. **Consent to Participate**  
+By clicking the button below, I consent to participate in this survey, and I agree that my responses may be used for research purposes, including analysis and reporting on housing affordability. I understand that my participation is voluntary and that I can withdraw at any time without any consequences. My responses will be kept confidential and will be used only in aggregate form.
+   - I agree
+
+---
+
+### **Section 2: Housing Situation**
+2. **What is your current housing situation?**  
+   - Own a home with a mortgage  
+   - Own a home without a mortgage  
+   - Rent a home/apartment  
+   - Live with family/friends without paying rent  
+   - Other (please specify)
+
+3. **How much of your monthly income goes toward housing costs (mortgage/rent, utilities, etc.)?**  
+   - Less than 20%  
+   - 20%-30%  
+   - 30%-50%  
+   - More than 50%  
+
+4. **Do you consider your housing costs to be affordable?**  
+   - Yes  
+   - No  
+   - Unsure  
+
+5. **How would you describe the stability of your current housing situation?**  
+   - Very stable  
+   - Somewhat stable  
+   - Somewhat unstable  
+   - Very unstable  
+
+---
+
+### **Section 3: Financial and Social Factors**
+6. **Have you experienced difficulty paying for housing in the past year?**  
+   - Yes  
+   - No  
+   - Unsure  
+
+7. **If you answered "Yes" to the previous question, what was the primary reason?**  
+   - Job loss or reduced income  
+   - Increased housing costs  
+   - Unexpected expenses  
+   - Other (please specify)
+
+8. **Do you feel that your current income adequately covers your housing and living expenses?**  
+   - Strongly agree  
+   - Somewhat agree  
+   - Neutral  
+   - Somewhat disagree  
+   - Strongly disagree  
+
+9. **How often do you save money after covering all your monthly expenses, including housing?**  
+   - Every month  
+   - Most months  
+   - Rarely  
+   - Never  
+
+10. **If you own a home, have you refinanced or attempted to refinance your mortgage in the past year?**  
+   - Yes  
+   - No  
+   - Not applicable  
+
+---
+
+### **Section 4: Perceptions of Housing Affordability**
+11. **On a scale of 1 to 5, how would you rate the overall affordability of housing in your area?**  
+   - 1 (Not affordable at all)  
+   - 2  
+   - 3  
+   - 4  
+   - 5 (Very affordable)
+
+12. **Do you feel your local government is addressing housing affordability issues effectively?**  
+   - Yes  
+   - No  
+   - Unsure  
+
+13. **What are the biggest challenges to housing affordability in your opinion? (Select up to 3)**  
+   - High property prices  
+   - Rising rents  
+   - Insufficient housing supply  
+   - Low wages  
+   - Lack of government support  
+   - Other (please specify)
+
+14. **How much does housing quality (size, condition, location) factor into your perception of affordability?**  
+   - Not at all  
+   - A little  
+   - Somewhat  
+   - A great deal  
+
+---
+
+### **Section 5: Demographics**
+15. **What is your age range?**  
+   - 18-24  
+   - 25-34  
+   - 35-44  
+   - 45-54  
+   - 55-64  
+   - 65 or older  
+   - Prefer not to say  
+
+16. **What is your current employment status?**  
+   - Employed full-time  
+   - Employed part-time  
+   - Self-employed  
+   - Unemployed  
+   - Retired  
+   - Student  
+   - Prefer not to say  
+
+17. **What is your household’s total annual income?**  
+   - Less than $20,000  
+   - $20,000-$49,999  
+   - $50,000-$99,999  
+   - $100,000-$149,999  
+   - $150,000 or more  
+   - Prefer not to say  
+
+18. **What is the highest level of education you have completed?**  
+   - Less than high school  
+   - High school diploma or GED  
+   - Some college  
+   - Associate degree  
+   - Bachelor’s degree  
+   - Graduate or professional degree  
+   - Prefer not to say  
+
+---
+
+### **End Message**  
+Thank you for completing this survey! Your responses are invaluable in understanding housing affordability challenges across the United States.
+
+---
+
+This survey balances quantitative and qualitative measures and aligns with the methodology discussed in your paper. Let me know if you'd like adjustments or additional sections!

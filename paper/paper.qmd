@@ -20,7 +20,7 @@ To capture the complexity of this issue, we develop an Affordability Index, a me
 
 The findings of this paper reveal that inflation and interest rates significantly reduce housing affordability (i.e. increase the affordability index), while an increase in housing supply improves it. Rising CPI drives up the cost of living and housing prices, decreasing purchasing power. Similarly, higher interest rates inflate mortgage costs, further straining affordability. Conversely, increased housing supply alleviates upward pressure on prices, demonstrating its critical role in improving affordability. These results offer valuable insights for policymakers, highlighting the need for measures that stabilize inflation, increase housing stock, and balance monetary policy to enhance housing accessibility.
 
-The remainder of this paper is organized as follows. Section @sec-data presents the data sources, variable descriptions, and exploratory analysis. Section @sec-model outlines the model details, setup, and justification. Section @sec-results highlights the key findings from the models and visualizations. Finally, Section @sec-discussion delves into the broader implications of these findings, addresses limitations, and suggests directions for future research. Lastly Section **(FIGURE OUT HOW TO REFERENCE APPENDIX HERE)** presents the model diagnostics and a survey, sampling, and observation method that would be ideal for data of the kind we used.
+The remainder of this paper is organized as follows. Section @sec-data presents the data sources, variable descriptions, and exploratory analysis. Section @sec-model outlines the model details, setup, and justification. Section @sec-results highlights the key findings from the models and visualizations. Finally, Section @sec-discussion delves into the broader implications of these findings, addresses limitations, and suggests directions for future research. Moreover, Sections @sec-model-details and @sec-ideal-meth of the appendix present the model diagnostics and a survey, sampling, and observation methodology that would be ideal for nature of data that we have used.
 
 ## Estimand
 
@@ -439,7 +439,7 @@ The CPI coefficients remain positive for all three models, indicating that highe
 
 # Discussion {#sec-discussion}
 
-## Overview: What Is Done In This Paper?  {#sec-overview}
+## Overview: What Is Done In This Paper? {#sec-overview}
 
 This paper investigates housing affordability in the United States over the period of 2006–2024 by developing a Affordability Index. The index measures the number of hours of work required to purchase a median-priced home and serves as a metric for gauging the accessibility of home ownership across time, especially when analysed through a long-term lens. Using multiple linear regression, this paper examines the influence of key economic variables—Consumer Price Index (CPI), housing supply, and interest rates—on housing affordability. These factors were chosen because they capture inflationary pressures, supply constraints, and monetary policy, which are all fundamental drivers of housing market dynamics.
 
@@ -447,11 +447,11 @@ To conduct the analysis, five data sets from FRED were downloaded, compiled, and
 
 ## Key Findings {#sec-key-findings}
 
-### Relationship Between CPI (Inflation) and the Affordability Index  {#sec-CPI}
+### Relationship Between CPI (Inflation) and the Affordability Index {#sec-CPI}
 
 The positive and statistically significant relationship between CPI and the affordability index confirms that higher inflation leads to reduced affordability. Inflation, as measured by the CPI, directly correlates with rising housing costs because construction materials, labor, and overall living expenses increase. As CPI rises, potential homebuyers face higher costs not only for housing but also for other goods and services, reducing their disposable income for mortgage payments. This finding highlights the economic strain placed on individuals during periods of inflation and highlights the need for policies that mitigate inflationary pressures in housing markets.
 
-### Relationship Between Housing Supply and the Affordability Index  {#sec-housing-supply}
+### Relationship Between Housing Supply and the Affordability Index {#sec-housing-supply}
 
 The negative coefficient associated with housing supply indicates that an increase in available housing improves affordability. When housing supply grows, competition among buyers decreases, stabilizing or reducing home prices. This relationship aligns with economic theory, which states that greater supply relative to demand leads to price reductions. However, the relatively modest effect size, from our model, suggests that while increasing supply is a necessary condition for improving affordability, it may not be sufficient on its own without addressing broader structural issues, such as zoning restrictions and construction costs. However, this could also be due to the limitations of the model.
 
@@ -531,6 +531,79 @@ The diagnostic plot for Model 3 is given in @fig-diagnostic-plot and we notice t
 3.  **Scale-Location Plot**: The residuals appear to be evenly spread, demonstrating that the assumption of homoscedasticity (constant variance of errors) is broadly met. There are slight variations in spread, but these are relatively minor and unlikely to skew results.
 
 4.  **Residuals vs. Leverage**: A few points with slightly higher leverage are observed, but their Cook's distance values indicate that they are not excessively influential. These points warrant attention but do not dominate the overall model.
+
+## Idealized Methodology {#sec-ideal-meth}
+
+### Limitations with FRED Methodology
+
+The Federal Reserce Economic Data's (FRED) data sets, while comprehensive in providing macroeconomic indicators, have several limitations when assessing housing affordability. First, it lacks granularity at the household level, failing to capture individual variations in financial burdens or regional disparities. Second, FRED focuses on objective metrics like house prices, wages, and economic variables, but omits subjective indicators such as perceived affordability or financial stress felt by individuals. Third, the data is often aggregated, potentially obscuring critical subpopulations like low-income households or first-time home buyers. These gaps emphasize the need for complementary data collection methods that can provide a more holistic understanding of housing affordability.
+
+### Overview
+
+To address the gaps identified in the FRED data sets and collection methods, we propose a comprehensive survey methodology aimed at capturing a clearer view of housing affordability in the United States. This approach integrates best practices from existing housing surveys, such as the Canada Mortgage and Housing Corporation's (CMHC) Social and Affordable Housing Survey **\[CITE 9) FROM REFERENCES\]**, and emphasizes both objective metrics and subjective experiences. The methodology focuses on diverse sampling techniques, inclusive recruitment strategies, and solid data validation processes to ensure the collection of reliable and representative data.
+
+### Sampling Method
+
+To ensure that the survey captures a wide range of experiences and perspectives regarding housing affordability, we propose a **stratified multi-stage sampling design**. This design breaks down the population into smaller, more manageable groups and ensures that each group is properly represented in the final sample. Here’s how it works:
+
+1.  **Stratification**: The first step divides the population into groups, or "*strata*," based on key characteristics such as geographic region, income level, type of housing (renter or homeowner), and urban or rural residence. For example, one stratum might consist of low-income renters in urban areas, while another might consist of middle-income homeowners in rural areas. By dividing the population in this way, we ensure that all important subgroups are included in the survey.
+
+2.  **Primary Sampling Units (PSUs)**: Within each stratum, large areas such as counties or cities are chosen as primary sampling units. These are selected using a method called "probability proportional to size" (PPS), which means areas with larger populations are more likely to be included. For example, If Los Angeles has a population of 4 million and a small rural area has a population of 40,000, the probability of selecting Los Angeles as a PSU is 100 times greater than that of the rural county. This is done in order to keep the probabilities of selection equal to the population sizes to give each area a proportinoally equal opportunity and representation.
+
+3.  **Secondary Sampling Units (SSUs)**: After the PSUs are chosen, smaller areas within them—such as neighborhoods—are selected. Again, PPS sampling is used to ensure that larger neighborhoods have a better chance of being included, due to the higher sampling frame. For example, within Los Angeles, densely populated neighborhoods like Downtown LA might have a higher probability of being chosen than sparsely populated suburban neighborhoods. However, suburban neighborhoods still have a chance to be included to ensure a balanced representation.
+
+4.  **Addressing Rural/Small Town Representation**:\
+    While PPS is efficient, it risks underrepresenting rural areas as they often have lower populations and hence, a lower chance of being selected. These areas often face distinct housing affordability challenges. To mitigate this:
+
+    -   **Separate Strata for Rural Areas:** A separate strata will be constructed for rural areas and areas with smaller populations, from which PSUs and SSUs can be selected. We did mention this in the stratification section, but we must emphasize that we aim for equal representation of all areas and demographic types.
+
+    -   **Oversampling Rural Areas**: Rural PSUs can be oversampled within their strata, ensuring sufficient representation despite their smaller population sizes.
+
+    <!-- -->
+
+    -   **Weighted Analysis**: Post-survey, weights can be applied to adjust for the lower selection probability of rural areas. For example, responses from a small rural neighborhood might be weighted more heavily than those from a densely populated city.
+
+    -   **Quota Sampling**: Quotas can be set to guarantee that a minimum percentage of the sample comes from rural PSUs, ensuring balance between urban and rural perspectives.
+
+5.  **Household Selection**: Finally, individual households are randomly selected from the chosen neighborhoods. This ensures that the survey captures a variety of household experiences within each subgroup.
+
+This process creates a sample that represents the diversity of the U.S. population while also allowing for deeper insights into specific groups. For example, by oversampling low-income households or areas with high housing costs, the survey can provide detailed data about the populations most affected by housing affordability challenges. This method is inspired by similar approaches used in large-scale housing surveys, such as the CMHC's Social and Affordable Housing Survey, which ensures a representative sample across diverse regions and demographics **\[CITE 9) FROM REFERENCES\].**
+
+### Recruitment Strategy
+
+A well-designed recruitment strategy is crucial for ensuring a diverse and representative sample for the survey. To achieve this, a **mixed-mode approach** will be used, employing multiple methods to contact participants and collect responses. This strategy not only maximizes response rates but also ensures that no group is excluded due to accessibility or technological barriers. To further maximize response rates and participation, we will hope to include a small compensation (small cash amount, gift cards, etc) for completing the survey, given that we can gather sufficient funding. Here’s how the process works:
+
+-   **Mail Invitations**:\
+    The first step in reaching participants is through mailed invitations. These physical letters will provide an introduction to the survey, explaining its purpose, importance, and instructions for participation. Including a personal touch like mail ensures that even households without internet access or those less tech-savvy are aware of the survey. For instance, older adults who may not regularly use the internet are more likely to respond to mailed materials.
+
+-   **Online Surveys**:\
+    Online surveys will serve as the primary method for data collection because they are cost-effective, quick, and accessible to most people. Participants can simply follow a link from the mailed invitation or QR code to access the survey on their computers or smartphones. Online surveys also make it easier to process and analyze data efficiently, reducing both time and human error. This method is particularly effective for tech-savvy demographics, such as younger adults. The platform for these surveys will be Google Forms.
+
+-   **Telephone Interviews**:\
+    To accommodate households that lack internet access or prefer not to participate online, telephone interviews will be conducted. Trained interviewers will call participants and guide them through the survey, ensuring that they can share their responses comfortably. This approach is particularly helpful for older adults, rural households, and low-income groups who may face barriers to online participation. It ensures that no one is left out due to lack of internet or unfamiliarity with digital tools. All necessary steps will be taken to identify the household and individuals correctly to ensure full accuracy in data collection.
+
+-   **In-Person Interviews**:\
+    In areas with low response rates or where other methods prove ineffective, in-person interviews will be conducted. Trained interviewers will visit selected households to collect responses face-to-face. This method is particularly useful in remote areas or among populations that might distrust online or phone methods. For example, face-to-face interactions often lead to higher response rates among communities where personal rapport is valued.
+
+This mixed-mode approach is inspired by the Canadian Mortgage and Housing Corporation’s (CMHC) survey methodology, which emphasizes using diverse data collection techniques to enhance data quality and fully represent all types of individuals and households. It ensures that every demographic—urban or rural, young or old, digitally connected or not—is represented in the survey results.
+
+### Data Validation
+
+Ensuring the accuracy and reliability of collected data is essential. The following validation measures will be implemented:
+
+-   **Consistency Checks**: Survey responses will be examined for logical consistency, such as verifying that reported housing costs align with stated income levels.
+
+-   **Duplicate Detection**: Measures will be in place to identify and remove duplicate responses, using unique identifiers like address or phone number.
+
+-   **Non-Response Analysis**: Patterns of non-response will be analyzed to assess potential biases, and weighting adjustments will be applied to account for underrepresented groups.
+
+-   **Data Imputation**: For missing or incomplete responses, statistical imputation methods will be used to estimate values, maintaining the integrity of the data set.
+
+These validation techniques are consistent with standard practices in housing surveys, ensuring the collection of high-quality data suitable for robust analysis.
+
+### Conclusion
+
+By integrating comprehensive sampling strategies, inclusive recruitment methods, and rigorous data validation processes, this idealized survey methodology aims to provide a nuanced understanding of housing affordability in the United States. Drawing on established practices from surveys like those conducted by the CMHC, this approach addresses the limitations of existing datasets and offers valuable insights for policymakers and researchers seeking to address housing affordability challenges. While most measures of housing affordability focus on the quantitative factors, we aim to create a balance and bring in the essential qualitative factors needed to really understand how an individual or a household feels about their financial situation and housing affordability. For example, we plan to include questions about whether respondents feel comfortable meeting their mortgage or rent payments, and if they feel secure in their ability to handle unexpected financial shocks, such as medical bills or job loss.
 
 \newpage
 
