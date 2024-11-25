@@ -1,0 +1,23 @@
+user: can you also help me write an abstract for this paper then. this is the rubric: An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.
+
+and these are some examples of very good abstracts: 
+
+1) abstract: >
+  This study employs a poll-of-polls approach to predict support for Kamala Harris and Donald Trump in the 2024 U.S. Presidential Election, focusing on key battleground states to forecast the likely winner of the electoral college. By aggregating multiple polls and applying a weighted linear regression model with predictors like pollster reliability, sample size, state, and recency, we estimate higher national support for Trump than Harris. Our analysis also shows a close competition in battleground states, with Trump holding a slight lead in Arizona, Georgia, and North Carolina, while Harris leads in Michigan, Nevada, Pennsylvania, and Wisconsin. These findings show the value of aggregating polls over relying on individual surveys, offering a robust forecast of electoral outcomes.
+
+2) abstract: "This paper examines household poverty status in the United States in 2019 using the 2019 Revised Supplemental Poverty Measure Research Dataset from the United States Census Bureau. Using logistic regression analysis, we investigate the influence of household income level and mortgage state on poverty status. Our findings reveal a higher likelihood of poverty for households' total annual income less than $50000, while all households with incomes exceeding $100000 are not in poverty. Also, renters is more likely to be in poverty compared to property owners. These insights emphasize the need for targeted interventions to address socioeconomic inequalities and promote financial well-being among US households."
+format: pdf
+
+
+
+chatgpt: Here’s a draft abstract for your paper, adhering to the rubric and using the examples provided for guidance:
+
+---
+
+**Abstract**
+
+This paper investigates housing affordability in the United States from 2006 to 2024 by constructing an Affordability Index that measures the number of work hours required to purchase a median-priced home. Using linear regression, we analyze the relationships between housing affordability and key macroeconomic variables: Consumer Price Index (CPI), housing supply, and interest rates. Our findings reveal that rising inflation and interest rates significantly reduce affordability, while increased housing supply mitigates this effect. These insights highlight the complex interplay of economic forces shaping the housing market and emphasize the importance of stabilizing inflation, increasing supply, and maintaining balanced monetary policy to improve housing accessibility for U.S. households.
+
+---
+
+This abstract is concise, clearly states what was done, the key findings, and why they matter, while remaining accessible to a non-specialist audience.

@@ -1,0 +1,58 @@
+user: can you also write the introductino. this is the rubric: The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.
+
+this is an additional suggested structure the professor gave us: Overview paragraph
+
+Estimand paragraph
+
+Results paragraph
+
+Why it matters paragraph
+
+Telegraphing paragraph: The remainder of this paper is structured as follows. @sec-data....
+ 
+
+and these are two examples of introductions that received full marks:
+
+1) # Introduction
+
+While individual polls provide snapshots of public opinion, they are often subject to biases and methodological differences. In this paper, we aim to forecast voter support for Kamala Harris and Donald Trump by using data from multiple polling sources, reducing individual poll biases, and improving overall prediction accuracy. Our analysis estimates the levels of support for each candidate nationally while focusing on swing states, which are likely to be decisive in determining the Electoral College outcome.
+
+The estimand of this study is the level of voter support for each candidate, Kamala Harris and Donald Trump, as reported across multiple polls. To estimate this, we developed a regression model incorporating variables such as pollster, sample size, state, and recency of the poll, with an emphasis on accurately capturing state-level dynamics. Our findings indicate that, on a national level, support between Kamala Harris and Donald Trump is closely balanced. Harris’s estimated national support is around 48%, while Trump’s support is slightly higher, around 49%. We found that Trump holds a lead in battleground states like Arizona and Georgia, with a support margin of over 1%. In contrast, Harris shows small leads in Michigan, Nevada, Pennsylvania, and Wisconsin, with her support margin in Wisconsin over 2%, making it her strongest battleground. North Carolina is one of the tightest races, with Trump leading by only 0.26%. This analysis is useful for political strategists, media analysts, and the general public by offering a view of the electoral landscape.
+
+This paper is organized as follows: In Section @sec-data, we show summary statistics, plot distributions of key variables, and examine relationships between variables. In Section @sec-model, we discuss our forecasting approach, model selection, justification for the chosen model, and the mechanism of deriving poll weights based on pollster reliability, ultimately presenting our predictions. In Section @sec-discussion, we address the broader implications of our findings, acknowledge limitations, and suggest directions for future work. [Appendix -@sec-data-model] contains details of the data cleaning process and model diagnostics. [Appendix -@sec-pollster-meth] contains a closer look at the methodology used by Emerson College Polling for its poll conducted from October 14 to 16, 2024. [Appendix -@sec-idealized-meth] contains a discussion about an idealized methodology that we would use to forecast the 2024 U.S. Presidential Election if we had a budget of  \$100,000. [Appendix -@sec-copy] contains a copy of a survey that would be used in the idealized methodology. [Appendix -@sec-styling] contains specifications on code styling. [Appendix -@sec-reproducibility] contains notes on reproducibility and [Appendix -@acknowledgment] acknowledges important resources consulted for the production of this paper.
+
+2) # Introduction
+Despite many policies the United States have implemented to mitigate poverty, there has been no real improvement [@Kearney_Harris]. Poverty remains a major issue in the US, affecting millions of people. In 2019, the poverty rate was 10.5%, which was approximately 34.0 million people [@Semega_2022]. Therefore, we want to find out the causes of poverty, in order to reduce it. Multiple research, using the Official Poverty Measure dataset gathered by the United States Census Bureau (USCB), looked at why poverty persists. USCB is an agency of the U.S. Federal Statistical System, responsible for producing data about the American people and economy [@uscb]. Over the years, people have realized that the Official Poverty Measure is flawed in various aspects [@Gesumaria_2015]. Therefore, Supplemental Poverty Measure was developed to address numerous concerns of Official Poverty Measure critics, providing an improved statistical picture of poverty. In this paper, we will analyze why some US household are in poverty in 2019 using the 2019 Revised Supplemental Poverty Measure (SPM) Research dataset from the United States Census Bureau (USCB) [@Bureau_2022]. We build a prediction model for households poverty status using 2019 Revised SPM dataset. This allows us to look at the question whether potential financial factors may influence the poverty status for US households in 2019.
+
+In this paper, a logistic regression model is used to predict the poverty status of households in the United States in 2019, with data from the 2019 Revised Supplemental Poverty Measure Research dataset. Logistic regression is a great choice since it is used to predict binary outcomes, such as poverty status (in poverty or not in poverty). Our analysis focuses on estimating the likelihood of household being in poverty, based on various financial factors captured in the SPM dataset. I selected 17 data features for analysis. After some data cleaning, I summarized 17 features into 2 variables: 1) mortgage state and 2) household annual total income after tax, plus government benefits and minus expenses. 
+
+The logistic regression model shows that in the US in 2019, households with an annual total income less than $5000 are in poverty. For households earning $5000 to $50000, the majority is not in poverty, yet some of them are still in poverty. For households earning above $100000, all of them are not in poverty. Additionally, renters are more likely to be in poverty compared to owners with or without mortgage.
+
+The remainder of this paper is structured into different sections. @sec-data demonstrates the data used for our report and includes some tables and graphs to illustrate the different groups of people in our data. @sec-model builds the model and discusses its justification and explanation. @sec-result highlights the results of the predictions using tables and graphs. @sec-discussion contains discussions that conducted based on the findings, which addresses the poverty status results based on mortgage states and income levels. Statistical programming language R [@citeR] is used in this report, with packages tidyverse [@citeTidyverse], here [@citeHere], rstanarm [@citeRstanarm], modelsummary [@citeModleSummary], ggplot2 [@citeGgplot2], knitr [@citeKnitr], marginaleffects [@citeMarginalEffects], plotly [@citePlotly], tibble [@citeTibble], margins [@citeMargins], testthat [@citetestthat] and kableExtra [@citeKableExtra].
+
+## Estimand
+The estimand in this paper is the number of households who are in poverty in reality. However, it is difficult to measure the exact number of households who are in poverty since there are millions of people in the United States and not all of them will be assessed due to various difficulties. For example, due to regional issues, some people who live in rural areas might not be included in the survey. Therefore, in this paper, we attempt to estimate the estimand using a logistic regression model which is fitted using sample dataset from the 2019 Revised Supplemental Poverty Measure Research Data from USCS.
+
+
+you can have the estimand paragraph as thelast paragraph. this is the rubric for it: The estimand is clearly stated, in its own paragraph, in the introduction. 
+
+
+chatgpt: Here’s the **Introduction Section** for your paper based on the rubric and examples:
+
+---
+
+### Introduction
+
+Housing affordability is a persistent challenge in the United States, with significant implications for economic stability and social well-being. Over the past two decades, escalating home prices, inflation, and shifting interest rates have exacerbated housing affordability issues, leaving many households unable to achieve homeownership. As policymakers seek solutions to these challenges, understanding the factors that drive housing affordability has become increasingly critical. This paper addresses this issue by focusing on the interplay of key macroeconomic variables—Consumer Price Index (CPI), housing supply, and interest rates—and their collective influence on housing affordability over time.
+
+To capture the complexity of this issue, we develop an Affordability Index, a novel measure representing the number of work hours required to purchase a median-priced home. This index provides a clear, intuitive way to assess affordability trends and evaluate the impact of inflation, housing supply, and monetary policy on homeownership accessibility. Using linear regression, we analyze how these factors interact and contribute to changes in affordability from 2006 to 2024. By systematically building and comparing three models, we examine the explanatory power of each predictor and evaluate their significance in shaping affordability dynamics.
+
+The findings of this paper reveal that inflation and interest rates significantly reduce housing affordability, while an increase in housing supply improves it. Rising CPI drives up the cost of living and housing prices, eroding purchasing power. Similarly, higher interest rates inflate mortgage costs, further straining affordability. Conversely, increased housing supply alleviates upward pressure on prices, demonstrating its critical role in improving affordability. These results offer valuable insights for policymakers, highlighting the need for measures that stabilize inflation, increase housing stock, and balance monetary policy to enhance housing accessibility.
+
+The estimand in this paper is the Affordability Index, representing the hours of work required to purchase a median-priced home. This measure allows us to quantify and analyze the impact of macroeconomic variables on affordability in a clear and meaningful way. By focusing on this estimand, we contribute to a deeper understanding of housing market dynamics and provide actionable insights for addressing affordability challenges.
+
+The remainder of this paper is organized as follows. Section @sec-data presents the data sources, variable descriptions, and exploratory analysis. Section @sec-model outlines the model setup, justification, and diagnostics. Section @sec-results highlights the key findings from the models and visualizations. Finally, Section @sec-discussion delves into the broader implications of these findings, addresses limitations, and suggests directions for future research. 
+
+--- 
+
+This structure satisfies the rubric, clearly states what was done, why it matters, and what was found, and concludes with the estimand. Let me know if you need any adjustments!

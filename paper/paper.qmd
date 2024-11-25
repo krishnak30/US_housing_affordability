@@ -1,12 +1,12 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
+title: "Analyzing Housing Affordability in the United States: The Role of Inflation, Interest Rates, and Supply"
+subtitle: "Rising Inflation and Interest Rates Worsen Affordability, While Increasing Housing Supply Offers Relief"
 author: 
   - Krishna Kumar
 thanks: "Code and data are available at: [https://github.com/RohanAlexander/starter_folder](https://github.com/RohanAlexander/starter_folder)."
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This paper investigates housing affordability in the United States from 2006 to 2024 by constructing an Affordability Index that measures the number of work hours required to purchase a median-priced home outright. Using a multiple linear regression model, we analyze the relationships between housing affordability and three key macroeconomic variables: Consumer Price Index (CPI), housing supply, and interest rates. Our findings reveal that rising inflation and interest rates significantly reduce affordability, while increased housing supply mitigates this effect. These insights highlight the complex interplay of economic forces shaping the housing market and emphasize the importance of stabilizing inflation, increasing supply, and maintaining balanced monetary policy to improve housing accessibility for U.S. households."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -14,15 +14,17 @@ bibliography: references.bib
 
 # Introduction {#sec-introduction}
 
-Overview paragraph
+Housing affordability is a growing issue in the United States, with significant implications for economic stability and social well-being of individuals. Over the past two decades, escalating home prices, inflation, and shifting interest rates have exacerbated housing affordability issues, leaving many households unable to achieve home ownership. As policymakers seek solutions to these challenges, understanding the factors that drive housing affordability has become increasingly critical. This paper addresses this issue by focusing on the interplay of key macroeconomic variables—Consumer Price Index (CPI), housing supply, and interest rates—and their collective influence on housing affordability over time.
 
-Estimand paragraph
+To capture the complexity of this issue, we develop an Affordability Index, a measure representing the number of work hours required to purchase a median-priced home outright. This index provides a clear, intuitive way to assess affordability trends int he long run and evaluate the impact of inflation, housing supply, and monetary policy on home ownership accessibility. Using multiple linear regression, we analyze how these factors interact and contribute to changes in affordability from 2006 to 2024. By systematically building and comparing three models, we examine the power of each predictor (marginally and collectively) and evaluate their significance in shaping affordability dynamics.
 
-Results paragraph
+The findings of this paper reveal that inflation and interest rates significantly reduce housing affordability (i.e. increase the affordability index), while an increase in housing supply improves it. Rising CPI drives up the cost of living and housing prices, decreasing purchasing power. Similarly, higher interest rates inflate mortgage costs, further straining affordability. Conversely, increased housing supply alleviates upward pressure on prices, demonstrating its critical role in improving affordability. These results offer valuable insights for policymakers, highlighting the need for measures that stabilize inflation, increase housing stock, and balance monetary policy to enhance housing accessibility.
 
-Why it matters paragraph
+The remainder of this paper is organized as follows. Section @sec-data presents the data sources, variable descriptions, and exploratory analysis. Section @sec-model outlines the model details, setup, and justification. Section @sec-results highlights the key findings from the models and visualizations. Finally, Section @sec-discussion delves into the broader implications of these findings, addresses limitations, and suggests directions for future research. Lastly Section **(FIGURE OUT HOW TO REFERENCE APPENDIX HERE)** presents the model diagnostics and a survey, sampling, and observation method that would be ideal for data of the kind we used.
 
-Telegraphing paragraph: The remainder of this paper is structured as follows. @sec-data....
+## Estimand
+
+The estimand in this paper is the Affordability Index, representing the hours of work required to purchase a median-priced home outright. This measure allows us to quantify and analyze the impact of macroeconomic variables on affordability in a clear and meaningful way, especially when the analysis focuses on the long run. By focusing on this estimand, we contribute to a deeper understanding of housing market dynamics and provide actionable insights for addressing affordability challenges.
 
 # Data {#sec-data}
 
@@ -327,7 +329,7 @@ ggplot(analysis_data, aes(x = Date, y = `Affordability Index`)) +
 
 Figure @fig-affordability-index presents the trends in the affordability index from 2006 to 2024, illustrating fluctuations in the cost of housing relative to wages. The affordability index is a key metric that represents the number of work hours required to afford a house, with higher values indicating greater financial strain on individuals. The index shows notable volatility over time, particularly during key economic events. From 2008 to 2011, the index declined significantly, reflecting improved affordability during the global financial crisis, likely due to falling house prices and stabilizing wages. However, affordability worsened from 2012 onwards, as the index steadily increased, peaking around 2020. This peak coincides with rising house prices during the pandemic-driven housing boom, requiring more work hours to afford a home. Post-2020, the index shows a downward trend, reflecting corrections in housing prices amid rising interest rates.
 
-# Model
+# Model {#sec-model}
 
 In this section, we develop and evaluate a series of models to understand the factors influencing housing affordability. The major challenge lies in selecting a model which is balanced in complexity and provides insightful results. We will be analyzing how CPI, housing supply, and interest rates affect the housing affordability in three separate models, adding one after the other. The goal of out modelling strategy is to find the effect of each of the predictor variables on the affordability index and their strengths.
 
@@ -370,7 +372,7 @@ All modelling was conducted using the Base R package **(CITE HERE)**, specifical
 
 **ALSO ADD A DAG HERE.**
 
-# Results
+# Results {#sec-results}
 
 Our results are summarized in @tbl-modelresults.
 
