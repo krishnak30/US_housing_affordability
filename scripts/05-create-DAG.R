@@ -3,10 +3,11 @@
 # Author: Krishna Kumar
 # Date: 20 November, 2024
 # Contact: krishna.kumar@mail.utoronto.ca
-# Pre-requisites: None
+# Pre-requisites: un-comment and install necessary packages as outlined below, if not already installed
 # Any other information needed? N/A
 
 #### Workspace setup ####
+
 #install.packages("DiagrammeRsvg")
 #install.packages("rsvg")
 

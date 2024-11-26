@@ -3,7 +3,7 @@
 # Author: Krishna Kumar
 # Date: 20 November, 2024
 # Contact: krishna.kumar@mail.utoronto.ca
-# Pre-requisites: Download all datasets according to "download_data" R script
+# Pre-requisites: Download all data sets according to "download_data" R script
 # Any other information needed? N/A
 
 #### Workspace setup ####

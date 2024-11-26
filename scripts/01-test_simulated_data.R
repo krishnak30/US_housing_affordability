@@ -8,7 +8,7 @@
 # Pre-requisites: 
   # - The `tidyverse` package must be installed and loaded
   # - 00-simulate_data.R must have been run
-# Any other information needed? Make sure you are in the `starter_folder` rproj
+# Any other information needed? Make sure you are in the `housing_affordability` rproj
 
 
 #### Workspace setup ####
