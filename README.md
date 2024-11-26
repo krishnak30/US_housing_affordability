@@ -1,22 +1,24 @@
-# Cost of Living Canada
+# Housing Affordability in the U.S. from 2006 to 2024
 
 ## Overview
 
-This repo provides students with a foundation for their own projects associated with *Telling Stories with Data*. You do not need every aspect for every paper and you should delete aspects that you do not need.
+This repository analyzes housing affordability trends in the United States, focusing on financial and social factors influencing households. The project evaluates key drivers like house prices, average hourly earnings, interest rate, inflation, and housing supply to provide insights into the challenges of housing affordability.
+
 
 
 ## File Structure
 
 The repo is structured as:
 
--   `data/raw_data` contains the raw data as obtained from X.
--   `data/analysis_data` contains the cleaned dataset that was constructed.
+-   `data/raw_data` contains the raw data as obtained from Federal Reserve Economic Data (FRED).
+-   `data/analysis_data` contains the cleaned data set that was constructed.
 -   `model` contains fitted models. 
--   `other` contains relevant literature, details about LLM chat interactions, and sketches.
--   `paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper. 
--   `scripts` contains the R scripts used to simulate, download and clean data.
+-   `other` contains details about LLM chat interactions and sketches.
+-   `paper` contains the files used to generate the paper, including the Quarto document, reference bibliography file, as well as the PDF of the paper. 
+-   `scripts` contains the R scripts used to simulate, download, clean, and test data.
 
 
 ## Statement on LLM usage
 
-Aspects of the code were written with the help of the auto-complete tool, Codriver. The abstract and introduction were written with the help of ChatHorse and the entire chat history is available in inputs/llms/usage.txt.
+Aspects of the code and text were written with the help of ChatGPT. The entire chat history is available `other/llms_usage`.
+

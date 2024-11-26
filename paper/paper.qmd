@@ -64,7 +64,7 @@ For analysis, only the required variables' data sets were downloaded from FRED. 
 
 -   ***Affordability Index:*** This variable measures the ratio of the Median Sales Price for New Houses Sold in the United States to the Average Hourly Earnings of All Employees in the Total Private Sector. It represents how many hours of work are required to afford a median-priced home. A higher value indicates reduced affordability, as workers would need to work more hours to buy a home.
 
-## Measurement 
+## Measurement
 
 -   ***CPI*****:** The CPI is based on prices for food, clothing, shelter, and fuels; transportation fares; service fees (e.g., water and sewer service); and sales taxes. Prices are collected monthly from about 4,000 housing units and approximately 26,000 retail establishments across 87 urban areas. To calculate the index, price changes are averaged with weights representing their importance in the spending of the particular group. The index measures price changes (as a percent change) from a predetermined reference date.
 
@@ -632,35 +632,41 @@ Participation in this survey is entirely voluntary, and you can choose to withdr
 
 Section 1: Housing Situation
 
-1.   **What is your current housing situation?**
+1.  **What is your current housing situation?**
 
-    -   Own a home with a mortgage
+```         
+-   Own a home with a mortgage
 
-    -   Own a home without a mortgage
+-   Own a home without a mortgage
 
-    -   Rent a home/apartment
+-   Rent a home/apartment
 
-    -   Live with family/friends without paying rent
+-   Live with family/friends without paying rent
 
-    -   Other (please specify): \_\_\_\_\_\_\_
+-   Other (please specify): \_\_\_\_\_\_\_
+```
 
-2.   **How much of your monthly income goes toward housing costs (mortgage/rent, utilities, etc.)?**
+2.  **How much of your monthly income goes toward housing costs (mortgage/rent, utilities, etc.)?**
 
-    -   Less than 20%
+```         
+-   Less than 20%
 
-    -   20%-30%
+-   20%-30%
 
-    -   30%-50%
+-   30%-50%
 
-    -   More than 50%
+-   More than 50%
+```
 
-3.   **Do you consider your housing costs to be affordable?**
+3.  **Do you consider your housing costs to be affordable?**
 
-    -   Yes
+```         
+-   Yes
 
-    -   No
+-   No
 
-    -   Other: \_\_\_\_\_\_\_\_
+-   Other: \_\_\_\_\_\_\_\_
+```
 
 4.  **How would you describe the stability of your current housing situation?**
 
@@ -674,97 +680,115 @@ Section 1: Housing Situation
 
 Section 2: Financial and Social Factors
 
-5.   **Have you experienced difficulty paying for housing in the past year?**
+5.  **Have you experienced difficulty paying for housing in the past year?**
 
-    -   Yes
+```         
+-   Yes
 
-    -   No
+-   No
 
-    -   Other: \_\_\_\_\_\_\_\_
+-   Other: \_\_\_\_\_\_\_\_
+```
 
-6.   **If you answered “Yes” to the previous question, what was the primary reason?**
+6.  **If you answered “Yes” to the previous question, what was the primary reason?**
 
-    -   Job loss or reduced income
+```         
+-   Job loss or reduced income
 
-    -   Increased housing costs
+-   Increased housing costs
 
-    -   Unexpected expenses
+-   Unexpected expenses
 
-    -   Other: \_\_\_\_\_\_\_\_
+-   Other: \_\_\_\_\_\_\_\_
+```
 
-7.   **Please respond according to the following statement: My current income adequately covers my housing expenses.**
+7.  **Please respond according to the following statement: My current income adequately covers my housing expenses.**
 
-    -   Strongly agree
+```         
+-   Strongly agree
 
-    -   Somewhat agree
+-   Somewhat agree
 
-    -   Neutral
+-   Neutral
 
-    -   Somewhat disagree
+-   Somewhat disagree
 
-    -   Strongly disagree
+-   Strongly disagree
+```
 
-8.   **How often do you save money after covering all your monthly expenses, including housing?**
+8.  **How often do you save money after covering all your monthly expenses, including housing?**
 
-    -   Every month
+```         
+-   Every month
 
-    -   Most months
+-   Most months
 
-    -   Rarely
+-   Rarely
 
-    -   Never
+-   Never
+```
 
-9.   **If you own a home, have you refinanced or attempted to refinance your mortgage in the past year?**
+9.  **If you own a home, have you refinanced or attempted to refinance your mortgage in the past year?**
 
-    -   Yes
+```         
+-   Yes
 
-    -   No
+-   No
 
-    -   Not applicable
+-   Not applicable
+```
 
 Section 3: Perceptions of Housing Affordability
 
-10.  **On a scale of 1 to 5, how would you rate the overall affordability of housing in your area?**
+10. **On a scale of 1 to 5, how would you rate the overall affordability of housing in your area?**
 
-    -   1 (Not affordable at all)
+```         
+-   1 (Not affordable at all)
 
-    -   2
+-   2
 
-    -   3
+-   3
 
-    -   4
+-   4
 
-    -   5 (Very affordable)
+-   5 (Very affordable)
+```
 
-11.  **Do you feel your local government is addressing housing affordability issues effectively?**
+11. **Do you feel your local government is addressing housing affordability issues effectively?**
 
-    -   Yes
+```         
+-   Yes
 
-    -   No
+-   No
 
-    -   Unsure
+-   Unsure
+```
 
-12.  **Would you say that you can comfortably afford your housing?**
+12. **Would you say that you can comfortably afford your housing?**
 
-    -   Yes
+```         
+-   Yes
 
-    -   No
+-   No
 
-    -   Other: \_\_\_\_\_\_\_
+-   Other: \_\_\_\_\_\_\_
+```
 
-13.  **What are the biggest challenges to housing affordability in your opinion? (Select up to 3)**
+13. **What are the biggest challenges to housing affordability in your opinion? (Select up to 3)**
 
-    -   High property prices
+```         
+-   High property prices
 
-    -   Rising rents
+-   Rising rents
 
-    -   Insufficient housing supply
+-   Insufficient housing supply
 
-    -   Low wages
+-   Low wages
 
-    -   Lack of government support
+-   Lack of government support
 
-    -   Other: \_\_\_\_\_\_\_
+-   Other: \_\_\_\_\_\_\_
+```
 
 14. **How much does housing quality (size, condition, location) factor into your perception of affordability?**
 
@@ -804,17 +828,19 @@ Section 4: Demographics
 
     -   Prefer not to say
 
-17.  **Which of the following best describes your race or ethnicity?**
+17. **Which of the following best describes your race or ethnicity?**
 
-    -   White or Caucasian
+```         
+-   White or Caucasian
 
-    -   Black or African America
+-   Black or African America
 
-    -   Hispanic or Latino of any race
+-   Hispanic or Latino of any race
 
-    -   Asian
+-   Asian
 
-    -   Other or multiple races
+-   Other or multiple races
+```
 
 18. **What is the highest level of education you have completed?**
 
