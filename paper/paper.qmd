@@ -3,7 +3,7 @@ title: "Analyzing Housing Affordability in the United States: The Role of Inflat
 subtitle: "Rising Inflation and Interest Rates Worsen Affordability, While Increasing Housing Supply Offers Relief"
 author: 
   - Krishna Kumar
-thanks: "Code and data are available at: [https://github.com/RohanAlexander/starter_folder](https://github.com/RohanAlexander/starter_folder)."
+thanks: "Code and data are available at: [https://github.com/krishnak30/US_housing_affordability](https://github.com/krishnak30/US_housing_affordability)."
 date: today
 date-format: long
 abstract: "This paper investigates housing affordability in the United States from 2006 to 2024 by constructing an Affordability Index that measures the number of work hours required to purchase a median-priced home outright. Using a multiple linear regression model, we analyze the relationships between housing affordability and three key macroeconomic variables: Consumer Price Index (CPI), housing supply, and interest rates. Our findings reveal that rising inflation and interest rates significantly reduce affordability, while increased housing supply mitigates this effect. These insights highlight the complex interplay of economic forces shaping the housing market and emphasize the importance of stabilizing inflation, increasing supply, and maintaining balanced monetary policy to improve housing accessibility for U.S. households."
