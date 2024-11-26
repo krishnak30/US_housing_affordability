@@ -30,23 +30,21 @@ The estimand in this paper is the Affordability Index, representing the hours of
 
 ## Overview
 
-This report uses monthly economic data derived from the Federal Reserve Economic Data (FRED) database to examine the key factors influencing housing affordability in the United States of America from March 2006 to September 2024. For this analysis, I have combined five data sets into one, which is then used for analysis. The data sets were downloaded using the `fredr` **(CITE)** package and loaded using the same library. The data were cleaned and analysed using the statistical programming language `R`. Simulating, cleaning, testing, and graphing were done with the help of the following packages: `Tidyverse`, `dplyr`, `lubridate`, `testthat`, `readr`, `arrow`, `ggplot2`, `here`, **(CITE + ADD ANY MORE YOU USED HERE) this**
+This report uses monthly economic data derived from the Federal Reserve Economic Data (FRED) database to examine the key factors influencing housing affordability in the United States of America from March 2006 to September 2024. For this analysis, I have combined five data sets into one, which is then used for analysis. The data sets were downloaded using the `fredr` [@FRED] package and loaded using the same library. The data were cleaned and analysed using the statistical programming language `R` [@citeR]. Simulating, cleaning, testing, and graphing were done with the help of the following packages: `Tidyverse` [@tidyverse], `dplyr` [@dplyr], `lubridate` [@lubridate], `testthat` [@testthat], `readr` [@readr], `arrow` [@arrow], `ggplot2` [@ggplot2], `here` [@here], `DiagrammeR` [@diagram], \``DiagrammeRsvg` [@DiagrammeRsvg], `rsvg` [@rsvg], and `modelsummary` [@modelsummary].
 
-The Federal Research Economic Data provides information about the people and economy of the United States, with a goal to support economic growth, assist in making informed decisions, and enhance scientific knowledge. Housing affordability has emerged as a growing concern in the US, with people facing a shortage of houses and constantly increasing prices due to a variety of factors. These challenges, compounded by the COVID-19 pandemic, have left many families struggling to access affordable housing. **(CITE 1) FROM REFERENCES)** Studying this data is essential in assessing the economic factors affecting housing affordability as well as the financial wellbeing of individuals. The data sets were all downloaded separately using the FRED API and then combined during the data cleaning.
+The Federal Research Economic Data provides informati on about the people and economy of the United States, with a goal to support economic growth, assist in making informed decisions, and enhance scientific knowledge. Housing affordability has emerged as a growing concern in the US, with people facing a shortage of houses and constantly increasing prices due to a variety of factors. These challenges, compounded by the COVID-19 pandemic, have left many families struggling to access affordable housing [@1]. Studying this data is essential in assessing the economic factors affecting housing affordability as well as the financial well-being of individuals. The data sets were all downloaded separately using the FRED API and then combined during the data cleaning.
 
-## Measurement (PARTIALLY LEFT TO DO)
-
-For each variable:
+## Measurement 
 
 -   ***CPI*****:** The CPI is based on prices for food, clothing, shelter, and fuels; transportation fares; service fees (e.g., water and sewer service); and sales taxes. Prices are collected monthly from about 4,000 housing units and approximately 26,000 retail establishments across 87 urban areas. To calculate the index, price changes are averaged with weights representing their importance in the spending of the particular group. The index measures price changes (as a percent change) from a predetermined reference date.
 
 -   ***Interest Rate:*** The Federal Open Market Committee (FOMC) meets eight times a year to determine the federal funds target rate. These rates are then announced to the public.
 
--   ***Average Wage:*** **Have to go through website for this**
+-   ***Average Wage:*** This is measured through the Current Employment Statistics (CES) program, which surveys approximately 119,000 businesses and government agencies monthly. Employers report total gross payroll and hours worked for all private-sector employees during the pay period including the 12th of the month. Average Hourly Earnings are calculated by dividing total payroll by total hours worked, excluding irregular bonuses or benefits, and aggregated using the NAICS classification system to provide an accurate measure of wage trends across industries.
 
--   `House Price`: **No method of measurement given for this.**
+-   ***House Price***: This is measured through data collected by the U.S. Census Bureau and the Department of Housing and Urban Development (HUD). This data is based on surveys of new single-family houses sold, with the price representing the middle value when all houses sold during a given period are ordered by price. The calculation excludes multifamily units and focuses on single-family homes, ensuring the measure reflects trends in the mid-range of housing markets without being skewed by extreme high or low prices.
 
--   `House Supply`: **No method of measurement given for this.**
+-   ***House Supply***: This is measured as the ratio of the number of new houses available for sale to the number of new houses sold, expressed in months. Data is collected through the New Residential Sales Survey, conducted jointly by the U.S. Census Bureau and HUD, which tracks both housing inventory and sales rates. This measure reflects how long the current inventory of new houses would last at the current sales pace, assuming no new inventory is added. The measure is calculated by dividing the total inventory of new homes available for sale by the current monthly sales rate. For example, if there are 400,000 houses for sale and 40,000 houses are sold in a month, the monthly supply is \$400,000/40,000 = 10 months. A higher value suggests excess inventory (a buyer's market), while a lower value indicates limited inventory (a seller's market).
 
 ## Data Cleaning
 
@@ -62,15 +60,15 @@ Similar data sets for all variables were readily available on the FRED database,
 
 For analysis, only the required variables' data sets were downloaded from FRED. This paper decided to focus on five variables to assess the problem of unaffordable housing in the US: CPI, interest rate, housing supply, median housing prices, and average wages. They are described below:
 
--   ***CPI*****:** This variable represents the Consumer Price Index for All Urban Consumers, for all items in the U.S. City Average, which measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Recorded monthly, this variable is measured in an index form, for which the base period is 1982-1984 where the value of the index sat at 100. Change in CPI from last year's CPI is one of the most common measures used to calculate inflation. This variable is seasonally adjusted and looks at \~ 88% of the population. **(CITE 2) HERE FROM REFERENCES)**
+-   ***CPI*****:** This variable represents the Consumer Price Index for All Urban Consumers, for all items in the U.S. City Average, which measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Recorded monthly, this variable is measured in an index form, for which the base period is 1982-1984 where the value of the index sat at 100. Change in CPI from last year's CPI is one of the most common measures used to calculate inflation. This variable is seasonally adjusted and looks at \~ 88% of the population [@2].
 
--   ***Interest Rate:*** This variable refers to the Federal Funds Effective Rate, which is the interest rate at which depository institutions trade federal funds with each other overnight. This interest rate is the central interest rate in the US, influencing other interest rates such as the prime rate (what banks charge customers with higher credit ratings) and longer term rates (mortgages, loans, savings). This variable is recorded monthly, represented as a percentage, and is not seasonally adjusted. **(CITE 3) HERE FROM REFERENCES)**
+-   ***Interest Rate:*** This variable refers to the Federal Funds Effective Rate, which is the interest rate at which depository institutions trade federal funds with each other overnight. This interest rate is the central interest rate in the US, influencing other interest rates such as the prime rate (what banks charge customers with higher credit ratings) and longer term rates (mortgages, loans, savings). This variable is recorded monthly, represented as a percentage, and is not seasonally adjusted [@3].
 
--   ***Average Wage:*** This variable denotes the Average Hourly Earnings of All Employees in the Total Private Sector. It includes premium pay for overtime and late-shift work. This was chosen over wage rates as this measures the actual return to a worker for a set period of time. It excludes benefits, irregular bonuses, retroactive pay, and payroll taxes paid by employers. This variable is measured in US Dollars per hour, recorded monthly, and is seasonally adjusted. **(CITE 4) FROM REFERENCES)**
+-   ***Average Wage:*** This variable denotes the Average Hourly Earnings of All Employees in the Total Private Sector. It includes premium pay for overtime and late-shift work. This was chosen over wage rates as this measures the actual return to a worker for a set period of time. It excludes benefits, irregular bonuses, retroactive pay, and payroll taxes paid by employers. This variable is measured in US Dollars per hour, recorded monthly, and is seasonally adjusted [@4].
 
--   ***House Price:*** This variable captures the Media Sales Price for New houses Sold int he United States. The media was chosen over the average prices to remove the effects of any outliers. This variable is recorded monthly, measured in US dollars, and is not seasonally adjusted. **(CITE 5) FROM REFERENCES)**
+-   ***House Price:*** This variable captures the Media Sales Price for New houses Sold int he United States. The media was chosen over the average prices to remove the effects of any outliers. This variable is recorded monthly, measured in US dollars, and is not seasonally adjusted [@5].
 
--   ***House Supply:*** This variables measures the Monthly Supply of New Houses in the United States. Measured in 'month's supply,' this refers to the ratio of new houses for sale to new houses sold. The month's supply indicates the size of the new for-sale inventory compared to the number of new houses currently being sold. This variable is recorded monthly and is seasonally adjusted. **(CITE 6) FROM REFERENCES)**
+-   ***House Supply:*** This variables measures the Monthly Supply of New Houses in the United States. Measured in 'month's supply,' this refers to the ratio of new houses for sale to new houses sold. The month's supply indicates the size of the new for-sale inventory compared to the number of new houses currently being sold. This variable is recorded monthly and is seasonally adjusted [@6].
 
 -   ***House Price Growth:*** This variable represents the year-over-year percentage growth in the Median Sales Price for New Houses Sold in the United States. It is calculated by taking the difference between the median house price at the end of the year and the beginning of the year, dividing this difference by the value at the beginning of the year, and multiplying by 100 to express the result as a percentage. This highlights the annual rate of change in house prices, helping to track trends in housing market inflation or deflation.
 
@@ -121,9 +119,9 @@ cpi_plot
 
 ```
 
-Figure **(CROSS REFERENCE HERE)** shows a clear pattern of a gradual increase from 2006 to 2024, with a clear spike in 2007 due to the financial crisis and a drop immediately after 2020 as a result of the COVID-19 pandemic. We can also see a notable acceleration in the post pandemic period CPI where the trend line becomes much steeper. This highlights periods of economic expansion, but also signals rising costs for consumers.
+Figure @fig-cpi shows a clear pattern of a gradual increase from 2006 to 2024, with a clear spike in 2007 due to the financial crisis and a drop immediately after 2020 as a result of the COVID-19 pandemic. We can also see a notable acceleration in the post pandemic period CPI where the trend line becomes much steeper. This highlights periods of economic expansion, but also signals rising costs for consumers.
 
-Inflation, as measured by CPI, directly impacts housing affordability. As inflation rises, the cost of living increases, including housing prices. Higher inflation often prompts the Federal Reserve to raise interest rates (which we will see in later graphs), making mortgages more expensive and reducing affordability for potential home buyers. Furthermore, when inflation erodes purchasing power, individuals have less disposable income to allocate toward homeownership, exacerbating affordability challenges. Historical relationships between CPI and housing prices reveal that rising inflation can contribute to increased home prices due to higher costs for construction materials and labor. **(CITE 7) HERE FROM REFERENCES)**
+Inflation, as measured by CPI, directly impacts housing affordability. As inflation rises, the cost of living increases, including housing prices. Higher inflation often prompts the Federal Reserve to raise interest rates (which we will see in later graphs), making mortgages more expensive and reducing affordability for potential home buyers. Furthermore, when inflation erodes purchasing power, individuals have less disposable income to allocate toward home ownership, exacerbating affordability challenges. Historical relationships between CPI and housing prices reveal that rising inflation can contribute to increased home prices due to higher costs for construction materials and labor [@7].
 
 \newpage
 
@@ -337,11 +335,11 @@ Because housing prices or wage rates alone can't determine affordability, we cre
 
 We begin with a single predictor, CPI, to assess it's impact on housing affordability. Then, we add housing supply for model 2 and interest rates for model 3, arriving at a full model that shows us the effect of each of these variables marginally, as well as collectively. This step wise approach helps ensure that the model remains interpretable. Moreover, performance measures such as R2, Adjusted R\^2, AIC, BIC, and RMSE were used to evaluate model performance.
 
-Here we briefly describe the multiple linear regression model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
+Here we briefly describe the multiple linear regression model used to investigate... Background details and diagnostics are included in @sec-model-details of the Appendix.
 
 ## Model set-up
 
-We aim to model the Affordability Index, which represents the number of hours of work required to purchast a house outright, as a function of key economic variables such as interest rates and inflation (measured by CPI).
+We aim to model the Affordability Index, which represents the number of hours of work required to purchase a house outright, as a function of key economic variables such as interest rates and inflation (measured by CPI).
 
 $$y_i = y_i = \beta_0 + \beta_1 \cdot \mathrm{CPI}_i + \beta_2 \cdot \mathrm{House    Supply}_i + \beta_3 \cdot \mathrm{Interest Rate}_i +  \epsilon_i
 $$
@@ -368,9 +366,23 @@ An increase in interest rates increases the mortgage rates in turn and decreases
 
 We opted for a linear regression model due to its capacity to quantify the marginal, and collective, effects of each predictor (CPI, housing supply, and interest rates) on housing affordability. This structure is well suited to match the topic and context of our analysis.
 
-All modelling was conducted using the Base R package **(CITE HERE)**, specifically using the lm() function from the statistical package for linear regression analysis.
+All modelling was conducted using the Base R package, specifically using the lm() function from the statistical package for linear regression analysis.
 
-**ALSO ADD A DAG HERE.**
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+#| label: fig-DAG
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: 'Factors influencing the Affordability Index shown as direct contributors'
+
+library(here)
+
+# Load and display the saved PNG
+knitr::include_graphics(here("paper", "dag.png"))
+
+```
 
 # Results {#sec-results}
 
@@ -382,6 +394,8 @@ Our results are summarized in @tbl-modelresults.
 #| label: tbl-modelresults
 #| tbl-cap: "Model Performance Summary showing improved fit and accuracy as Housing Supply and Interest Rates are added, with $R^2$ increasing from 0.370 in Model 1 to 0.471 in Model 3, and RMSE decreasing by over 70 points"
 #| warning: false
+
+library(modelsummary)
 
 model1 <- readRDS(here("models/model_1_CPI.rds"))
 model2 <- readRDS(here("models/model_2_CPI_HousingSupply.rds"))
@@ -398,7 +412,7 @@ modelsummary::modelsummary(
 
 ```
 
-Table @tbl-modelresults summarizes the performance metrics for our three models, with progressively added variables. Model 1, which only uses CPI as a predictor, achieves an $R^2$ of 0.370, indicating that CPI alone explains about 37% of the variance in the affordability index. Model 2 uses housing supply as an added predictor and achieves only a 0.005% increase in $R^2$ , indicating that housing supply has a very minute impact on the variation of the affordability index. Moreover, model 2 only sees a very small reduction in the RMSE (850.31) showing a status-quo in predictive accuracy and model fit. This allows us to conclude that housing supply, when combined with CPI does not produce an impact that is statistically significant.
+Table @tbl-modelresults summarizes the performance metrics for our three models, with progressively added variables. Model 1, which only uses CPI as a predictor, achieves an $R^2$ of 0.370, indicating that CPI alone explains about 37% of the variance in the affordability index. Model 2 uses housing supply as an added predictor and achieves only a 0.005% increase in $R^2$ , indicating that housing supply has a very minute impact on the variation of the affordability index. Moreover, model 2 only sees a very small reduction in the RMSE (850.31) showing a status quo in predictive accuracy and model fit. This allows us to conclude that housing supply, when combined with CPI does not produce an impact that is statistically significant.
 
 Model 3, which incorporates all three predictor variables, shows the largest improvement, with $R^2$ rising to 46.4% and RMSE dropping to 782.15, reflecting a stronger model fit. Moreover, model 3 also sees the lowest values of AIC and BIC that indicate that model 3 is the best model as it balances fit and complexity most effectively. This progression highlights the benefit of adding contextual variables like housing supply and interest rates to better capture the accuracy of the model, as well as analyzing the marginal impacts of each predictor variable.
 
@@ -449,7 +463,7 @@ To conduct the analysis, five data sets from FRED were downloaded, compiled, and
 
 ### Relationship Between CPI (Inflation) and the Affordability Index {#sec-CPI}
 
-The positive and statistically significant relationship between CPI and the affordability index confirms that higher inflation leads to reduced affordability. Inflation, as measured by the CPI, directly correlates with rising housing costs because construction materials, labor, and overall living expenses increase. As CPI rises, potential homebuyers face higher costs not only for housing but also for other goods and services, reducing their disposable income for mortgage payments. This finding highlights the economic strain placed on individuals during periods of inflation and highlights the need for policies that mitigate inflationary pressures in housing markets.
+The positive and statistically significant relationship between CPI and the affordability index confirms that higher inflation leads to reduced affordability. Inflation, as measured by the CPI, directly correlates with rising housing costs because construction materials, labor, and overall living expenses increase. As CPI rises, potential home buyers face higher costs not only for housing but also for other goods and services, reducing their disposable income for mortgage payments. This finding highlights the economic strain placed on individuals during periods of inflation and highlights the need for policies that mitigate inflationary pressures in housing markets.
 
 ### Relationship Between Housing Supply and the Affordability Index {#sec-housing-supply}
 
@@ -534,11 +548,11 @@ The diagnostic plot for Model 3 is given in @fig-diagnostic-plot and we notice t
 
 ### Limitations with FRED Methodology
 
-The Federal Reserce Economic Data's (FRED) data sets, while comprehensive in providing macroeconomic indicators, have several limitations when assessing housing affordability. First, it lacks granularity at the household level, failing to capture individual variations in financial burdens or regional disparities. Second, FRED focuses on objective metrics like house prices, wages, and economic variables, but omits subjective indicators such as perceived affordability or financial stress felt by individuals. Third, the data is often aggregated, potentially obscuring critical subpopulations like low-income households or first-time home buyers. These gaps emphasize the need for complementary data collection methods that can provide a more holistic understanding of housing affordability.
+The Federal Reserve Economic Data's (FRED) data sets, while comprehensive in providing macroeconomic indicators, have several limitations when assessing housing affordability. First, it lacks granularity at the household level, failing to capture individual variations in financial burdens or regional disparities. Second, FRED focuses on objective metrics like house prices, wages, and economic variables, but omits subjective indicators such as perceived affordability or financial stress felt by individuals. Third, the data is often aggregated, potentially obscuring critical sub populations like low-income households or first-time home buyers. These gaps emphasize the need for complementary data collection methods that can provide a more holistic understanding of housing affordability.
 
 ### Overview
 
-To address the gaps identified in the FRED data sets and collection methods, we propose a comprehensive survey methodology aimed at capturing a clearer view of housing affordability in the United States. This approach integrates best practices from existing housing surveys, such as the Canada Mortgage and Housing Corporation's (CMHC) Social and Affordable Housing Survey **\[CITE 9) FROM REFERENCES\]**, and emphasizes both objective metrics and subjective experiences. The methodology focuses on diverse sampling techniques, inclusive recruitment strategies, and solid data validation processes to ensure the collection of reliable and representative data.
+To address the gaps identified in the FRED data sets and collection methods, we propose a comprehensive survey methodology aimed at capturing a clearer view of housing affordability in the United States. This approach integrates best practices from existing housing surveys, such as the Canada Mortgage and Housing Corporation's (CMHC) Social and Affordable Housing Survey [@8], and emphasizes both objective metrics and subjective experiences. The methodology focuses on diverse sampling techniques, inclusive recruitment strategies, and solid data validation processes to ensure the collection of reliable and representative data.
 
 ### Sampling Method
 
@@ -551,13 +565,11 @@ To ensure that the survey captures a wide range of experiences and perspectives 
 3.  **Secondary Sampling Units (SSUs)**: After the PSUs are chosen, smaller areas within them—such as neighborhoods—are selected. Again, PPS sampling is used to ensure that larger neighborhoods have a better chance of being included, due to the higher sampling frame. For example, within Los Angeles, densely populated neighborhoods like Downtown LA might have a higher probability of being chosen than sparsely populated suburban neighborhoods. However, suburban neighborhoods still have a chance to be included to ensure a balanced representation.
 
 4.  **Addressing Rural/Small Town Representation**:\
-    While PPS is efficient, it risks underrepresenting rural areas as they often have lower populations and hence, a lower chance of being selected. These areas often face distinct housing affordability challenges. To mitigate this:
+    While PPS is efficient, it risks under representing rural areas as they often have lower populations and hence, a lower chance of being selected. These areas often face distinct housing affordability challenges. To mitigate this:
 
     -   **Separate Strata for Rural Areas:** A separate strata will be constructed for rural areas and areas with smaller populations, from which PSUs and SSUs can be selected. We did mention this in the stratification section, but we must emphasize that we aim for equal representation of all areas and demographic types.
 
-    -   **Oversampling Rural Areas**: Rural PSUs can be oversampled within their strata, ensuring sufficient representation despite their smaller population sizes.
-
-    <!-- -->
+    -   **Oversampling Rural Areas**: Rural PSUs can be over sampled within their strata, ensuring sufficient representation despite their smaller population sizes.
 
     -   **Weighted Analysis**: Post-survey, weights can be applied to adjust for the lower selection probability of rural areas. For example, responses from a small rural neighborhood might be weighted more heavily than those from a densely populated city.
 
@@ -565,7 +577,7 @@ To ensure that the survey captures a wide range of experiences and perspectives 
 
 5.  **Household Selection**: Finally, individual households are randomly selected from the chosen neighborhoods. This ensures that the survey captures a variety of household experiences within each subgroup.
 
-This process creates a sample that represents the diversity of the U.S. population while also allowing for deeper insights into specific groups. For example, by oversampling low-income households or areas with high housing costs, the survey can provide detailed data about the populations most affected by housing affordability challenges. This method is inspired by similar approaches used in large-scale housing surveys, such as the CMHC's Social and Affordable Housing Survey, which ensures a representative sample across diverse regions and demographics **\[CITE 9) FROM REFERENCES\].**
+This process creates a sample that represents the diversity of the U.S. population while also allowing for deeper insights into specific groups. For example, by oversampling low-income households or areas with high housing costs, the survey can provide detailed data about the populations most affected by housing affordability challenges. This method is inspired by similar approaches used in large-scale housing surveys, such as the CMHC's Social and Affordable Housing Survey, which ensures a representative sample across diverse regions and demographics [@8].
 
 ### Recruitment Strategy
 
@@ -606,6 +618,236 @@ By integrating comprehensive sampling strategies, inclusive recruitment methods,
 The survey can be found at this link: <https://forms.gle/xLyZsGiEEDcwPnH66>
 
 ## Copy of the Survey
+
+**Housing Affordability Survey 2024**
+
+**Introduction:** Thank you for participating in the Housing Affordability Survey. This survey aims to understand how individuals and households perceive and experience housing affordability in the United States. Your responses will help in assessing the financial and social factors contributing to housing affordability challenges.
+
+Participation in this survey is entirely voluntary, and you can choose to withdraw at any time without any consequences. The information collected will be used solely for research purposes. Your responses will remain confidential and will only be reported in aggregate form.
+
+**Contact Information:** For questions regarding this survey or the methodology used, please reach out to:
+
+-   **Krishna Kumar**, University of Toronto. Email: [krishna.kumar\@mail.utoronto.ca](mailto:krishna.kumar@mail.utoronto.ca)
+
+### Section 1: Housing Situation
+
+1.   **What is your current housing situation?**
+
+    -   Own a home with a mortgage
+
+    -   Own a home without a mortgage
+
+    -   Rent a home/apartment
+
+    -   Live with family/friends without paying rent
+
+    -   Other (please specify): \_\_\_\_\_\_\_
+
+2.   **How much of your monthly income goes toward housing costs (mortgage/rent, utilities, etc.)?**
+
+    -   Less than 20%
+
+    -   20%-30%
+
+    -   30%-50%
+
+    -   More than 50%
+
+3.   **Do you consider your housing costs to be affordable?**
+
+    -   Yes
+
+    -   No
+
+    -   Other: \_\_\_\_\_\_\_\_
+
+4.  **How would you describe the stability of your current housing situation?**
+
+    -   Very stable
+
+    -   Somewhat stable
+
+    -   Somewhat unstable
+
+    -   Very unstable
+
+### Section 2: Financial and Social Factors
+
+5.   **Have you experienced difficulty paying for housing in the past year?**
+
+    -   Yes
+
+    -   No
+
+    -   Other: \_\_\_\_\_\_\_\_
+
+6.   **If you answered “Yes” to the previous question, what was the primary reason?**
+
+    -   Job loss or reduced income
+
+    -   Increased housing costs
+
+    -   Unexpected expenses
+
+    -   Other: \_\_\_\_\_\_\_\_
+
+7.   **Please respond according to the following statement: My current income adequately covers my housing expenses.**
+
+    -   Strongly agree
+
+    -   Somewhat agree
+
+    -   Neutral
+
+    -   Somewhat disagree
+
+    -   Strongly disagree
+
+8.   **How often do you save money after covering all your monthly expenses, including housing?**
+
+    -   Every month
+
+    -   Most months
+
+    -   Rarely
+
+    -   Never
+
+9.   **If you own a home, have you refinanced or attempted to refinance your mortgage in the past year?**
+
+    -   Yes
+
+    -   No
+
+    -   Not applicable
+
+### Section 3: Perceptions of Housing Affordability
+
+10.  **On a scale of 1 to 5, how would you rate the overall affordability of housing in your area?**
+
+    -   1 (Not affordable at all)
+
+    -   2
+
+    -   3
+
+    -   4
+
+    -   5 (Very affordable)
+
+11.  **Do you feel your local government is addressing housing affordability issues effectively?**
+
+    -   Yes
+
+    -   No
+
+    -   Unsure
+
+12.  **Would you say that you can comfortably afford your housing?**
+
+    -   Yes
+
+    -   No
+
+    -   Other: \_\_\_\_\_\_\_
+
+13.  **What are the biggest challenges to housing affordability in your opinion? (Select up to 3)**
+
+    -   High property prices
+
+    -   Rising rents
+
+    -   Insufficient housing supply
+
+    -   Low wages
+
+    -   Lack of government support
+
+    -   Other: \_\_\_\_\_\_\_
+
+14. **How much does housing quality (size, condition, location) factor into your perception of affordability?**
+
+    -   Not at all
+
+    -   A little
+
+    -   Somewhat
+
+    -   A great deal
+
+### Section 4: Demographics 
+
+15. **What is your age range? (years)**
+
+    -   18-24
+
+    -   25-34
+
+    -   35-44
+
+    -   45-54
+
+    -   55-64
+
+    -   65 or older
+
+    -   Prefer not to say
+
+16. **What gender do you identify as?**
+
+    -   Male
+
+    -   Female
+
+    -   Non-binary
+
+    -   Prefer not to say
+
+17.  **Which of the following best describes your race or ethnicity?**
+
+    -   White or Caucasian
+
+    -   Black or African America
+
+    -   Hispanic or Latino of any race
+
+    -   Asian
+
+    -   Other or multiple races
+
+18. **What is the highest level of education you have completed?**
+
+    -   Less than high school
+
+    -   High school diploma or GED
+
+    -   Some college, no degree
+
+    -   Associate degree
+
+    -   Bachelor’s degree
+
+    -   Graduate or professional degree
+
+    -   Prefer not to say
+
+19. **What is your current employment status?**
+
+    -   Employed full-time
+
+    -   Employed part-time
+
+    -   Self-employed
+
+    -   Unemployed
+
+    -   Student
+
+    -   Retired
+
+    -   Prefer not to say
+
+**End Message:** Thank you for completing this survey! Your responses are invaluable in understanding housing affordability challenges across the United States.
 
 \newpage
 

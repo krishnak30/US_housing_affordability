@@ -1,0 +1,81 @@
+user: please go through this: Data Available
+The Current Employment Statistics (CES) program produces nonfarm employment series for all employees (AE), production and nonsupervisory employees (PE), and women employees (WE). For AE and PE, CES also produces average hourly earnings (AHE), average weekly hours (AWH), and, in manufacturing industries only, average weekly overtime hours (AWOH).
+
+Most detailed employment series begin in 1990, although employment by aggregate industry sector and most major industry sectors is published as far back as 1939. A list of currently published CES series is available on the CES Published Series webpage.
+
+About 1,900 not seasonally adjusted employment series for all employees, production and nonsupervisory employees, and women employees are published monthly. The series for all employees include just over 800 industries at various levels of aggregation.
+
+Approximately 2,200 AE and PE series for AWH, AHE, and, in manufacturing, AWOH are published monthly on a not seasonally adjusted basis and cover about 600 industries.
+
+Over 4,100 seasonally adjusted employment series for AE, PE, and WE and hours and earnings series for AE and PE are published.
+
+About 7,500 not seasonally adjusted special derivative series such as average weekly earnings (AWE), indexes, and constant dollar series for AE and PE are also published for approximately 600 industries.
+
+Coverage
+Payroll employment data are published for both private and government sectors. These data are available for nonfarm industries.
+
+Hours and earnings data are published only for the private sector. These data are produced for all private-sector employees on business payrolls and also for production and nonsupervisory employees. Production and nonsupervisory employees include production employees in mining and logging and manufacturing, construction employees in construction, and nonsupervisory employees in private service-providing industries.
+
+Reference Period
+The survey reference period is the pay period including the 12th of the month. This can vary according to an establishment's length of pay period, a factor taken into account when compiling the data.
+
+Source of Data
+The Current Employment Statistics Program is a federal-state cooperative program. The CES survey is based on approximately 119,000 businesses and government agencies representing approximately 629,000 individual worksites throughout the United States.
+
+Industry Classification
+CES data are classified according to the 2022 North American Industry Classification System (NAICS).
+
+The sample is estimated at the basic cell level for purposes of computing national all employee (AE) estimates and then aggregated to summary levels. Estimating cell structures may differ for production and nonsupervisory employees (PE), women employees (WE), and hours and earnings for both AE and PE. Cells are defined primarily by detailed industry. In the construction supersector, geographic stratification is also used. The estimation cells can be defined at the 3-, 4-, 5-, and 6-digit North American Industry Classification System (NAICS) level.
+
+In addition to the estimation cells mentioned above, there are a small number of independently estimated cells that do not aggregate to the summary cell levels.
+
+Forms of Publication
+The Current Employment Statistics program publishes news releases and other outputs. These publications include monthly news releases, like the Employment Situation and the Real Earnings report, and charts and tables, like the CES highlights and the CES net birth-death tables. Annually, CES publishes CES-National Benchmark Article. All CES-N publications and regular outputs are described in the Handbook of Methods in the Presentation section under Publications and outputs.
+
+The Employment Situation — available 3 weeks after the reference week (usually the first Friday of each month)
+Real Earnings — coincident with the Consumer Price Index release
+Employment and Earnings Online
+CES databases
+All CES news releases
+Upcoming CES release dates
+All BLS Economic News Releases
+Uses
+The CES monthly employment series are the first economic indicator of current economic trends each month, together with the unemployment rate, and are inputs to many gauges of the U.S. economy including:
+
+The overall health of the economy (employment)
+Earnings trends and wage-push inflation (average hourly earnings)
+Short-term fluctuations in demand (average weekly hours)
+CES employment series are inputs into other major economic indicators:
+
+Personal Income (aggregate earnings)
+Industrial Production (aggregate hours in manufacturing, mining, and public utilities)
+Index of Leading Economic Indicators (average weekly hours of production employees in manufacturing)
+Index of Coincident Indicators (employment)
+Productivity measures (aggregate hours)
+CES employment series can also inform other areas of business, research, and policy:
+
+Public policy
+Wage negotiations
+Economic research and planning
+Industry studies
+
+and give me the answer for the measurement of average earnings 
+
+chatgpt: The **Average Hourly Earnings (AHE)** are measured through the **Current Employment Statistics (CES)** program, which surveys approximately 119,000 businesses and government agencies monthly. Employers report total gross payroll and hours worked for all private-sector employees during the pay period including the 12th of the month. AHE is calculated by dividing total payroll by total hours worked, excluding irregular bonuses or benefits, and aggregated using the NAICS classification system to provide an accurate measure of wage trends across industries.
+
+user: ok this is awesome. now what about the median house prices
+
+chatgpt: The Median House Prices are measured through data collected by the U.S. Census Bureau and the Department of Housing and Urban Development (HUD). This data is based on surveys of new single-family houses sold, with the price representing the middle value when all houses sold during a given period are ordered by price. The calculation excludes multifamily units and focuses on single-family homes, ensuring the measure reflects trends in the mid-range of housing markets without being skewed by extreme high or low prices.
+
+
+
+
+
+
+user: now what about the house supply?
+
+chatgpt: The **Monthly Supply of Houses (MSACSR)** measures the number of months it would take for the current inventory of houses on the market to sell at the current sales pace. This data is compiled by the **U.S. Census Bureau** and the **Department of Housing and Urban Development (HUD)** through their monthly surveys of home builders and housing completions.
+
+The measure is calculated by dividing the total inventory of new homes available for sale by the current monthly sales rate. For example, if there are 400,000 houses for sale and 40,000 houses are sold in a month, the monthly supply is \( 400,000 \div 40,000 = 10 \) months. This indicator is widely used to assess the balance between housing demand and supply in the market. A higher value suggests excess inventory (a buyer's market), while a lower value indicates limited inventory (a seller's market).
+
+Would you like further details or links to documentation?

@@ -1,0 +1,117 @@
+user: can you make a DAG similar to the picture I've attached, but for my model. 
+
+chatgpt: Here’s the simplified code for your DAG without unobserved confounders:
+
+```R
+library(DiagrammeR)
+
+grViz("
+digraph DAG {
+  
+  graph [layout = dot, rankdir = LR]
+  
+  node [shape = circle, style = filled, color = lightblue]
+  
+  'CPI' [label = 'CPI']
+  'Interest Rate' [label = 'Interest Rate']
+  'Housing Supply' [label = 'Housing Supply']
+  'Affordability Index' [label = 'Affordability Index']
+  
+  // Add edges
+  'CPI' -> 'Affordability Index'
+  'Interest Rate' -> 'Affordability Index'
+  'Housing Supply' -> 'Affordability Index'
+}
+
+")
+```
+
+### Steps:
+1. Run the above code in R.
+2. The DAG will display the direct relationships between the predictors (`CPI`, `Interest Rate`, `Housing Supply`) and the outcome variable (`Affordability Index`).
+
+This simplified DAG aligns directly with your model. Let me know if you need further tweaks!
+
+user: an you write the code for the dag similar to this code and save it as a file, because otherwise i would have to render to HTML:
+
+#### Workspace setup ####
+library(DiagrammeR)
+library(DiagrammeRsvg)
+library(rsvg)
+library(ggfortify)
+library(here)
+
+# Define the causal model
+causal_model <- "digraph {
+  # Define nodes
+  node [shape = plaintext]
+    A [label = 'Candidate Support']
+    B [label = 'Pollster']
+    C [label = 'Sample Size']
+    D [label = 'State']
+    E [label = 'Recency']
+    F [label = 'Unobserved Confounders']
+
+  # Define directed edges (causal relationships)
+  edge []
+    B -> A
+    C -> A
+    D -> A
+    E -> A
+
+  # Dashed edges for unobserved confounders
+  edge [style = dashed]
+    F -> B
+    F -> E
+    F -> A
+}"
+
+# Render and export the graph
+graph <- grViz(causal_model)
+
+# Save the graph as a PNG file
+export_svg(graph) |>
+  charToRaw() |>
+  rsvg::rsvg_png("other/graphs/polls_of_polls_dag.png", width = 1000)
+
+chatgpt: an you write the code for the dag similar to this code and save it as a file, because otherwise i would have to render to HTML:
+
+#### Workspace setup ####
+library(DiagrammeR)
+library(DiagrammeRsvg)
+library(rsvg)
+library(ggfortify)
+library(here)
+
+# Define the causal model
+causal_model <- "digraph {
+  # Define nodes
+  node [shape = plaintext]
+    A [label = 'Candidate Support']
+    B [label = 'Pollster']
+    C [label = 'Sample Size']
+    D [label = 'State']
+    E [label = 'Recency']
+    F [label = 'Unobserved Confounders']
+
+  # Define directed edges (causal relationships)
+  edge []
+    B -> A
+    C -> A
+    D -> A
+    E -> A
+
+  # Dashed edges for unobserved confounders
+  edge [style = dashed]
+    F -> B
+    F -> E
+    F -> A
+}"
+
+# Render and export the graph
+graph <- grViz(causal_model)
+
+# Save the graph as a PNG file
+export_svg(graph) |>
+  charToRaw() |>
+  rsvg::rsvg_png("other/graphs/polls_of_polls_dag.png", width = 1000)
